@@ -1,0 +1,17 @@
+button{
+
+  margin-right: 5px;
+
+}
+
+img{
+  display:block;
+}
+
+.card{
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-left: 200px;
+}

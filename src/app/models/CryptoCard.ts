@@ -1,31 +1,40 @@
-import axios from 'axios';
-import { textChangeRangeIsUnchanged } from 'typescript';
+// import axios from 'axios';
+
+import { PricesService } from '../services/prices.service';
 
 /**
  * This holds the model for single crypto card to be rendered
  */
 
-export default class Crypto {
+export class CryptoCard {
   name: string;
   code: string;
   // logo: string;
 
   // spotPrice: number;
-  // buyPrice: number;
+  buyPrice: string;
   // sellPrice: number;
 
   // balance: number;
 
   userId: number = 0;
 
-  // https://api.coinbase.com/v2/prices/BTC-USD/sell
-  urlC: string = 'https://api.coinbase.com/v2/prices/';
+  ps: PricesService;
 
-  public constructor(code: string) {
+  // https://api.coinbase.com/v2/prices/BTC-USD/sell
+
+  constructor(code: string) {
     this.name = this.populateName(code);
     this.code = code;
-    console.log(this.fetchBuyPrice(code)); // testing
+
+    this.ps
+      .fetchBuyPrice(code)
+      .subscribe((ob) => (this.buyPrice = ob.data.amount));
+
+    // this.buyPrice = this.ps.fetchBuyPriceAxios(code);
   }
+
+  // constructor (private pricesService : PricesService) {}
 
   // Method to evaluate name
 
@@ -52,16 +61,10 @@ export default class Crypto {
     }
   }
 
-  fetchBuyPrice(code: string) {
-    resp: Promise = new Promise();
-
-    try {
-      resp: Promise<() => Promise = fetch(`${this.urlC}${code}-USD/buy`).then((res) => res.json);
-      // .then((res) => (price = res.data.amount));
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //Fetch Buy Price
+  // fetchBuyPrice(code: string): Observable<BuySell> {
+  //   return HttpClient.get<BuySell>(`${urlC}code-USD/buy`);
+  // }
 
   // buy Method
 

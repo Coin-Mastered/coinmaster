@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-sm-3">
     <div class="card">
       <div class="card-body">
@@ -37,18 +37,39 @@
   </div>
 </div>
 
-<!--Modal stuff-->
-<div class="modal fade" id="car-buy" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+ Modal stuff-->
+<!-- <div
+  class="modal fade"
+  id="car-buy"
+  tabindex="-1"
+  aria-labelledby="modal-title"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="modal-title">Buy</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="modal-body">Current Buy price: </div>
+      <div class="modal-body">Current Buy price:</div>
       <div class="modal-footer">
         <button class="btn btn-primary">Buy</button>
       </div>
     </div>
   </div>
+</div> -->
+
+<div>
+  <h2>Cryptos Available</h2>
+  <div *ngFor="let c of cryptos">
+    <p>Name: {{ c.name }}</p>
+    <p>Buy: {{ c.buyPrice }}</p>
+  </div>
 </div>
+
+<p>End Line</p>

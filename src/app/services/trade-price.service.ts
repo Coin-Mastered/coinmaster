@@ -209,14 +209,14 @@ export class TradePriceService {
     // console.log('price fixer hit');
     let test = '123e-1';
 
-    console.log(price);
+    // console.log(price);
 
     let isE = price.includes('e');
     let left: number;
     let power: number;
 
     if (isE) {
-      console.log('isE hit');
+      // console.log('isE hit');
       let priceArray = price.split('e');
       left = +priceArray[0];
 
@@ -227,8 +227,8 @@ export class TradePriceService {
       return (forReturn * power).toString();
       // console.log(left + power);
     } else {
-      console.log('elseE hit');
-      console.log(`Left side ${price} `);
+      // console.log('elseE hit');
+      // console.log(`Left side ${price} `);
 
       return (1 / +price).toString();
     }

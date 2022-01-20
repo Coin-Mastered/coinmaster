@@ -1,12 +1,12 @@
 export class BuySell {
-  data: data;
+  data: Data;
 
-  constructor(data: data) {
+  constructor(data: Data) {
     this.data = data;
   }
 }
 
-export class data {
+export class Data {
   base: string;
   currency: string;
   amount: string;

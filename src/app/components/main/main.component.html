@@ -66,10 +66,15 @@
 
 <div>
   <h2>Cryptos Available</h2>
-  <div *ngFor="let c of cryptos">
-    <p>Name: {{ c.name }}</p>
-    <p>Buy: {{ c.buyPrice }}</p>
+  <div id="cryptoCards">
+    <div *ngFor="let c of cryptos" class="cryptoCard">
+      <div id="cryptoName">{{ c.name }}</div>
+      <!-- <p>Buy: {{ c.buyPrice }}</p> -->
+    </div>
   </div>
 </div>
 
+<p *ngIf="cryptos.length == 0">Cryptos Empty</p>
+
+<p *ngIf="cryptos.length != 0">c length: {{ cryptos.length }}</p>
 <p>End Line</p>

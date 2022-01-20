@@ -11,13 +11,24 @@ export class MainComponent implements OnInit {
   cardano = 'assets/cardano-ada-logo.png';
   ethereum =
     'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png';
-  cryptos: CryptoCard[];
+  cryptos: CryptoCard[] = [];
+
+  coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
 
   constructor() {}
 
   ngOnInit(): void {
-    let BTC = new CryptoCard('BTC');
-    console.log(BTC);
-    this.cryptos.push(BTC);
+    // let BTC = new CryptoCard('BTC');
+    // console.log(BTC); // logs out with name 'Bitcoin' as expected
+    // this.cryptos.push(BTC);
+    this.setCryptos();
+  }
+
+  setCryptos() {
+    this.coins.forEach((coin) => this.cryptos.push(new CryptoCard(coin)));
+
+    // let BTC = new CryptoCard('BTC');
+    // console.log(BTC); // logs out with name 'Bitcoin' as expected
+    // this.cryptos.push(BTC);
   }
 }

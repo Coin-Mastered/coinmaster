@@ -1,4 +1,4 @@
-import { data } from './../models/buysell';
+import { Data } from './../models/buysell';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,17 +11,25 @@ const urlC: string = 'https://api.coinbase.com/v2/prices/';
   providedIn: 'root',
 })
 export class PricesService {
-  constructor(private http: HttpClient) {}
+  private http: HttpClient;
+  constructor() {}
 
-  public fetchBuyPrice(code: string): Observable<BuySell> {
+  public fetchBuyPrice(code: string): string {
+    console.log('fetchBuyPrice called');
+    console.log(code);
+    console.log(urlC);
     console.log(`${urlC}${code}-USD/buy`);
-    let response = this.http.get<BuySell>(`${urlC}${code}-USD/buy`);
-    console.log(response);
-    return response;
-  }
 
-  public async fetchBuyPriceAxios(code: string) {
-    let response = await axios.get(`${urlC}${code}-USD/buy`);
-    return response.data.amount;
+    let amount: string = '0';
+
+    this.http.get<BuySell>(`${urlC}${code}-USD/buy`).subscribe((res) => {
+      // amount = res.data.amount;
+      console.log(res);
+    });
+    return amount;
+
+    // response.subscribe((data) => console.log(data));
+
+    // return response;
   }
 }

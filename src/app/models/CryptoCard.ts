@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 // import axios from 'axios';
 
 import { PricesService } from '../services/prices.service';
@@ -19,17 +20,22 @@ export class CryptoCard {
 
   userId: number = 0;
 
-  ps: PricesService;
+  ps: PricesService = new PricesService();
 
   // https://api.coinbase.com/v2/prices/BTC-USD/sell
 
-  constructor(code: string) {
+  public constructor(
+    code: string //, private ps: PricesService) {
+  ) {
     this.name = this.populateName(code);
     this.code = code;
+    console.log('pre fetchbuyprice in cryptocard'); // this runs
 
-    this.ps
-      .fetchBuyPrice(code)
-      .subscribe((ob) => (this.buyPrice = ob.data.amount));
+    // this.ps
+    //   .fetchBuyPrice(code)
+    //   .subscribe((ob) => (this.buyPrice = ob.data.amount));
+
+    // this.buyPrice = this.ps.fetchBuyPrice(code);
 
     // this.buyPrice = this.ps.fetchBuyPriceAxios(code);
   }
@@ -38,8 +44,14 @@ export class CryptoCard {
 
   // Method to evaluate name
 
+  callPsFetchBuyPrice() {
+    this.ps.fetchBuyPrice(this.code);
+  }
+
   populateName(code: string) {
     switch (code) {
+      case 'BTC':
+        return 'Bitcoin';
       case 'ETH':
         return 'Ethereum';
       case 'LTC':
@@ -48,8 +60,6 @@ export class CryptoCard {
         return 'Cardano';
       case 'DOT':
         return 'Polkadot';
-      case 'BTC':
-        return 'Bitcoin';
       case 'XLM':
         return 'Stellar';
       case 'DOGE':

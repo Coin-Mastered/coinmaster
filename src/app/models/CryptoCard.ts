@@ -20,7 +20,7 @@ export class CryptoCard {
 
   userId: number = 0;
 
-  ps: PricesService = new PricesService();
+  // ps: PricesService = new PricesService();
 
   // https://api.coinbase.com/v2/prices/BTC-USD/sell
 
@@ -44,9 +44,9 @@ export class CryptoCard {
 
   // Method to evaluate name
 
-  callPsFetchBuyPrice() {
-    this.ps.fetchBuyPrice(this.code);
-  }
+  // callPsFetchBuyPrice() {
+  //   this.ps.fetchBuyPrice(this.code);
+  // }
 
   populateName(code: string) {
     switch (code) {
@@ -64,8 +64,8 @@ export class CryptoCard {
         return 'Stellar';
       case 'DOGE':
         return 'Dogecoin';
-      case 'Tether':
-        return 'USDT';
+      case 'USDT':
+        return 'Tether';
       default:
         return 'Name not found';
     }

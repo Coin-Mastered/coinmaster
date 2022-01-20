@@ -83,15 +83,21 @@ export class CryptoCard {
   //   return HttpClient.get<BuySell>(`${urlC}code-USD/buy`);
   // }
 
+  // tradePrice(buyOrSell: string) {
+  //   let tps = this.tradePriceService;
+
+  //   let amt: string;
+  //   fetcher();
+  //   async function fetcher() {
+  //     await tps.tradePriceService(this);
+  //     console.log(this.buyPrice);
+  //   }
+  // }
+
   tradePrice(buyOrSell: string) {
-    let tps = this.tradePriceService;
-    let amt: string;
-    fetcher();
-    async function fetcher() {
-      amt = await tps.tradePrice();
-      console.log;
-      return amt;
-    }
+    console.log(this);
+    this.tradePriceService.tradePriceService(this);
+    console.log(this); // shows buyprice at this.buyPrice
   }
 
   // buy Method

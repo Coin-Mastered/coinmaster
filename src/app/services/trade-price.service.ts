@@ -1,3 +1,4 @@
+import { CryptoCard } from './../models/CryptoCard';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -31,7 +32,7 @@ export class TradePriceService {
   //   return 'Returned Before fetching';
   // }
 
-  tradePrice(): any {
+  tradePriceService(cryptoCard: CryptoCard): any {
     let amount: string;
     console.log('tradePriceService Called');
 
@@ -42,8 +43,9 @@ export class TradePriceService {
       })
       .subscribe({
         next: (v) => {
-          console.log('Amount is ' + v.data.amount);
-          return v.data.amount;
+          console.log('Amount is ' + v.data.amount); // Amount is 43079.23
+          cryptoCard.buyPrice = v.data.amount;
+          // return v.data.amount;
           console.log('no run');
         },
         error: (e) => console.error(e),

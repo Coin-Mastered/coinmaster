@@ -17,3 +17,4 @@ export const environment = {
 
 
 export const awsUrl = ""
+export const coinurl = "https://api.coinbase.com/v2/prices/"

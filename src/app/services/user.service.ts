@@ -5,6 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { awsUrl } from 'src/environments/environment';
 
 
+
 //Need to make a url
 const url = `${awsUrl}/users`;
 
@@ -22,6 +23,17 @@ export class UserService {
 
 
   // Find by username and check password
+ /* public login(username:string, password:string){
+
+    let req: any = {
+      "username" : username,
+      "password" : password
+    }
+
+    return this.http.post(`${awsUrl}insertloginmapping`, request, {responseType: 'text' as 'json'})
+
+
+  }*/
 
   registerUser(user: User): Observable<User>{
     return this.http.post<User>(`${awsUrl}/add`, user, this.httpOptions)

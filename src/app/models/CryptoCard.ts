@@ -18,11 +18,14 @@ export class CryptoCard {
   code: string;
   // logo: string;
 
-  spotPrice: string;
+  spotPrice: string; // This is market price
 
   buyOrSell: string;
+
   buyPrice: string;
   sellPrice: string;
+  previousBuyPrice: String;
+  previousSellPrice: String;
 
   balance: string;
   buySell: BuySell;
@@ -65,6 +68,9 @@ export class CryptoCard {
     this.name = this.populateName(this.code);
     this.tradePriceBuy();
     this.tradePriceSell();
+    this.tradePriceService.marketPriceService(this);
+
+    // console.log(this.tradePriceService.maketPrice);
   }
 
   //Fetch Buy Price
@@ -95,6 +101,7 @@ export class CryptoCard {
     // console.log(this); //  show buyPrice as expected ?????
     // this.buyOrSell = buyOrSell;
     // console.log(this.buyOrSell);
+    this.previousBuyPrice = this.buyPrice ?? 'NA';
     this.tradePriceService.tradePriceBuyService(this);
     // console.log(this); // shows buyprice at this.buyPrice
   }
@@ -103,6 +110,7 @@ export class CryptoCard {
     // console.log(this); //  show buyPrice as expected ?????
     // this.buyOrSell = buyOrSell;
     // console.log(this.buyOrSell);
+    this.previousSellPrice = this.sellPrice ?? 'NA';
     this.tradePriceService.tradePriceSellService(this);
     // console.log(this); // shows buyprice at this.buyPrice
   }

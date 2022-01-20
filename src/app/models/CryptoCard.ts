@@ -19,6 +19,8 @@ export class CryptoCard {
   // logo: string;
 
   spotPrice: string;
+
+  buyOrSell: string;
   buyPrice: string;
   sellPrice: string;
 
@@ -94,8 +96,10 @@ export class CryptoCard {
   //   }
   // }
 
-  async tradePrice(buyOrSell: string) {
+  tradePrice(buyOrSell: string) {
     // console.log(this); //  show buyPrice as expected ?????
+    this.buyOrSell = buyOrSell;
+    // console.log(this.buyOrSell);
     this.tradePriceService.tradePriceService(this);
     console.log(this); // shows buyprice at this.buyPrice
   }

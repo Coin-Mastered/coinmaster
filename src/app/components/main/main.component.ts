@@ -14,8 +14,8 @@ export class MainComponent implements OnInit {
     'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png';
   cryptos: CryptoCard[] = [];
 
-  // coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
-  coins: string[] = ['BTC'];
+  coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
+  // coins: string[] = ['BTC'];
 
   constructor(
     private cryptoCard: CryptoCard,
@@ -34,10 +34,12 @@ export class MainComponent implements OnInit {
     this.coins.forEach((coin) => {
       let card: CryptoCard = new CryptoCard(this.tradePriceService);
 
+      card.code = coin;
       card.tradePrice('buy');
-      console.log(card);
+      card.tradePrice('sell');
+      // console.log(card);
       this.cryptos.push(card);
-      console.log(card.buyPrice ?? 'Card.buyPrice still not loaded');
+      // console.log(card.buyPrice ?? 'Card.buyPrice still not loaded') but works;
     });
 
     // let BTC = new CryptoCard('BTC');

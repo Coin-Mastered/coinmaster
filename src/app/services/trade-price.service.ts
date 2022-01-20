@@ -37,16 +37,61 @@ export class TradePriceService {
     console.log('tradePriceService Called');
 
     this.http
-      .get<BuySell>('https://api.coinbase.com/v2/prices/BTC-USD/sell', {
-        observe: 'body',
-        responseType: 'json',
-      })
+      .get<BuySell>(
+        `https://api.coinbase.com/v2/prices/${cryptoCard.code}-USD/${cryptoCard.buyOrSell}`,
+        {
+          observe: 'body',
+          responseType: 'json',
+        }
+      )
       .subscribe({
         next: (v) => {
           console.log('Amount is ' + v.data.amount); // Amount is 43079.23
-          cryptoCard.buyPrice = v.data.amount;
+          if (cryptoCard.buyOrSell == 'buy') {
+            console.log('buy req ran');
+            cryptoCard.buyPrice = v.data.amount;
+          }
+          if (cryptoCard.buyOrSell == 'sell') {
+            console.log('sell req ran');
+            cryptoCard.sellPrice = v.data.amount;
+          }
+
           // return v.data.amount;
-          console.log('no run');
+          // console.log('no run');
+        },
+        error: (e) => console.error(e),
+        complete: () => {
+          console.info('complete');
+        },
+      });
+  }
+
+  tradePriceServiceSell(cryptoCard: CryptoCard) {
+    let amount: string;
+    console.log('tradePriceService Called');
+
+    this.http
+      .get<BuySell>(
+        `https://api.coinbase.com/v2/prices/${cryptoCard.code}-USD/${cryptoCard.buyOrSell}`,
+        {
+          observe: 'body',
+          responseType: 'json',
+        }
+      )
+      .subscribe({
+        next: (v) => {
+          console.log('Amount is ' + v.data.amount); // Amount is 43079.23
+          if (cryptoCard.buyOrSell == 'buy') {
+            console.log('buy req ran');
+            cryptoCard.buyPrice = v.data.amount;
+          }
+          if (cryptoCard.buyOrSell == 'sell') {
+            console.log('sell req ran');
+            cryptoCard.sellPrice = v.data.amount;
+          }
+
+          // return v.data.amount;
+          // console.log('no run');
         },
         error: (e) => console.error(e),
         complete: () => {

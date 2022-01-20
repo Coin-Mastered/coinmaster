@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     WalletComponent,
     LoginComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -29,8 +31,10 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule,
     HttpClientModule
+
   ],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

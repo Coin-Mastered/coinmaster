@@ -1,12 +1,50 @@
-/*button{
-
-  margin-right: 5px;
-
+#cryptoCards {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-img{
-  display:block;
+#cryptoCards > div {
+  margin: 5px;
+  padding: 5px;
+  border: 3px solid grey;
+  width: 23vw;
+  background-color: beige;
+  min-width: 225px;
 }
+
+#cryptoName {
+  color: green;
+}
+
+#buySellPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+*button{
+
+
+#buySellPrice > div {
+  margin: 5px;
+}
+
+#cardTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+#cryptoCode {
+  font-weight: 600;
+}
+
+
+#spotPrice {
+  display: flex;
+  justify-content: center;
+  border: 1px solid grey;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 3px;
 
 .card{
   margin: 0 auto;
@@ -22,6 +60,7 @@ img{
   margin-bottom: 10px;
   margin-top: 15px;
   margin-left: 200px;
+
 }
 
 .row {

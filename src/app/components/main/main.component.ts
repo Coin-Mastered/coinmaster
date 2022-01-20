@@ -1,10 +1,12 @@
-import { PricesService } from './../../services/prices.service';
-/*import { Component, OnInit } from '@angular/core';
+
+import { CryptoCard } from './../../models/CryptoCard';
+import { Component, OnInit } from '@angular/core';
+// import { coinurl } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
 
@@ -18,76 +20,34 @@ export class MainComponent implements OnInit {
   DogeCoin = 'assets/image (4).png'
   Tether = 'assets/image (5).png'
 
-
-
-  constructor() {}
-
-  ngOnInit(): void {}
-
-}*/
-
-import { Component, OnInit } from '@angular/core';
-import { CryptoCard } from '../../models/CryptoCard';
-import { HttpErrorResponse, HttpClient, HttpHeaders } from '@angular/common/http';
-import { coinurl } from 'src/environments/environment';
-
-const url = `${coinurl}`
-
-@Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
-})
-export class MainComponent implements OnInit {
-  bitcoin = 'assets/BTC.png';
-  cardano = 'assets/ADA.png';
-  ethereum =
-    'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png';
   cryptos: CryptoCard[] = [];
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
 
-  http: HttpClient;
 
-  sell: any[] = [];
-
+  constructor(private cryptoCard: CryptoCard) {}
 
 
-  constructor() {}
 
-  /*httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
-  }*/
+
+
 
   ngOnInit(): void {
     // let BTC = new CryptoCard('BTC');
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
     this.setCryptos();
-    //this.setSellPrices();
+
   }
 
-  setCryptos() {
-    this.coins.forEach((coin) => this.cryptos.push(new CryptoCard(coin)));
+ setCryptos() {
+    // this.coins.forEach((coin) => this.cryptos.push(new CryptoCard(coin)));
+    this.coins.forEach((coin) => {
+      let card: CryptoCard = new CryptoCard(this.tradePriceService);
+      card.makeCryptoCard(coin);
+      this.cryptos.push(card);
+    });
 
-    // let BTC = new CryptoCard('BTC');
-    // console.log(BTC); // logs out with name 'Bitcoin' as expected
-    // this.cryptos.push(BTC);
-  }
 
-  /*getSellPrice(code: string) {
-    return PricesService.getSell(code)
-  }*/
-
-  getPrices(code: string){
-
-    this.http.get(`${coinurl}${code}-USD/sell`)
-      .subscribe(data => console.log(data))
-  }
-
-  setSellPrices(){
-    this.coins.forEach((coin) => this.sell.push(this.getPrices(coin)));
   }
 }
-
-

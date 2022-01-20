@@ -1,8 +1,17 @@
+
+import { Data } from './../models/buysell';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+;
+import axios from 'axios';
+
 import { Data, crypto } from './../models/buysell';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {  HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
 import { BuySell } from '../models/buysell';
+
 
 const urlC: string = 'https://api.coinbase.com/v2/prices/';
 
@@ -10,6 +19,9 @@ const urlC: string = 'https://api.coinbase.com/v2/prices/';
   providedIn: 'root',
 })
 export class PricesService {
+
+  private http: HttpClient;
+
   static getSell(code: string) {
     throw new Error('Method not implemented.');
   }
@@ -29,6 +41,7 @@ export class PricesService {
 
 
 /*  private http: HttpClient;
+
   constructor() {}
 
   public fetchBuyPrice(code: string): string {
@@ -48,5 +61,9 @@ export class PricesService {
     // response.subscribe((data) => console.log(data));
 
     // return response;
+
+  }
+
   }*/
+
 }

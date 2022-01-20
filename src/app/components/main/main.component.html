@@ -1,7 +1,4 @@
-<!--         <img src={{Tether}} class="Tether-logo" alt="Tether" width="40" height="40"> -->
-
 <div>
-  <h2>Cryptos Available</h2>
   <div id="cryptoCards">
     <div *ngFor="let c of cryptos" class="cryptoCard">
       <div id="cardTitle">
@@ -29,7 +26,7 @@
   </div>
 </div>
 
-<p *ngIf="cryptos.length == 0">No Data Received</p>
+<p *ngIf="cryptos.length == 0">There is no data fetched.</p>
 
 <div class="card" style="width: 120rem">
   <div class="card-header text-center">Top 3 earners</div>

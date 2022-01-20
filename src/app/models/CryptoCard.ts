@@ -42,6 +42,8 @@ export class CryptoCard {
 
   //    console.log('pre fetchbuyprice in cryptocard'); // this runs
 
+  //    console.log('pre fetchbuyprice in cryptocard'); // this runs
+
   // this.ps
   //   .fetchBuyPrice(code)
   //   .subscribe((ob) => (this.buyPrice = ob.data.amount));
@@ -95,6 +97,9 @@ export class CryptoCard {
   // fetchBuyPrice(code: string): Observable<BuySell> {
   //   return HttpClient.get<BuySell>(`${urlC}code-USD/buy`);
   // }
+
+  // tradePrice(buyOrSell: string) {
+  //   let tps = this.tradePriceService;
 
   // tradePrice(buyOrSell: string) {
   //   let tps = this.tradePriceService;

@@ -6,13 +6,17 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { PricesService } from '../services/prices.service';
 import { Injectable } from '@angular/core';
 
+
 /**
  * This holds the model for single crypto card to be rendered
  */
 
+
 @Injectable({
   providedIn: 'root',
 })
+
+
 export class CryptoCard {
   name: string;
   code: string;
@@ -32,13 +36,37 @@ export class CryptoCard {
 
   userId: number = 0;
 
+
   // tradePriceService: TradePriceService;
+
+
 
   // ps: PricesService = new PricesService();
 
   // https://api.coinbase.com/v2/prices/BTC-USD/sell
 
   public constructor(private tradePriceService: TradePriceService) {}
+
+
+//    console.log('pre fetchbuyprice in cryptocard'); // this runs
+
+    // this.ps
+    //   .fetchBuyPrice(code)
+    //   .subscribe((ob) => (this.buyPrice = ob.data.amount));
+
+    // this.buyPrice = this.ps.fetchBuyPrice(code);
+
+    // this.buyPrice = this.ps.fetchBuyPriceAxios(code);
+  
+
+  // constructor (private pricesService : PricesService) {}
+
+  // Method to evaluate name
+
+  // callPsFetchBuyPrice() {
+  //   this.ps.fetchBuyPrice(this.code);
+  // }
+
 
   populateName(code: string) {
     switch (code) {
@@ -78,6 +106,7 @@ export class CryptoCard {
   //   return HttpClient.get<BuySell>(`${urlC}code-USD/buy`);
   // }
 
+
   // tradePrice(buyOrSell: string) {
   //   let tps = this.tradePriceService;
 
@@ -113,9 +142,8 @@ export class CryptoCard {
     this.previousSellPrice = this.sellPrice ?? 'NA';
     this.tradePriceService.tradePriceSellService(this);
     // console.log(this); // shows buyprice at this.buyPrice
+
   }
 
-  // buy Method
 
-  // sell Method
 }

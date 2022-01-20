@@ -17,3 +17,21 @@ export class Data {
     this.amount = amount;
   }
 }
+
+
+// export class crypto {
+//   base: string;
+//   currency: string;
+//   amount: number
+
+//     constructor(
+//       base: string,
+//     currency: string,
+//     amount: number
+//     ){
+//       this.base = base
+//       this.currency = currency
+//       this.amount = amount
+//     }
+// }
+

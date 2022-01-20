@@ -1,4 +1,4 @@
-
+import { TradePriceService } from './../../services/trade-price.service';
 import { CryptoCard } from './../../models/CryptoCard';
 import { Component, OnInit } from '@angular/core';
 // import { coinurl } from 'src/environments/environment';
@@ -10,6 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  // bitcoin = 'assets/bitcoin-btc-logo.png';
+  // cardano = 'assets/cardano-ada-logo.png';
+  // ethereum =
+  //   'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png';
+
+
   bitcoin = 'assets/bitcoin-btc-logo.png'
   cardano = 'assets/cardano-ada-logo.png'
   ethereum = 'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png'
@@ -20,12 +26,21 @@ export class MainComponent implements OnInit {
   DogeCoin = 'assets/image (4).png'
   Tether = 'assets/image (5).png'
 
+
   cryptos: CryptoCard[] = [];
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
+  // coins: string[] = ['BTC'];
+
+
+  constructor(
+    private cryptoCard: CryptoCard,
+    private tradePriceService: TradePriceService
+  ) {}
 
 
   constructor(private cryptoCard: CryptoCard) {}
+
 
 
 
@@ -47,6 +62,15 @@ export class MainComponent implements OnInit {
       card.makeCryptoCard(coin);
       this.cryptos.push(card);
     });
+
+
+    // let BTC = new CryptoCard('BTC');
+    // console.log(BTC); // logs out with name 'Bitcoin' as expected
+    // this.cryptos.push(BTC);
+    // console.log('setCryptos()');
+
+    // this.cryptoCard.tradePrice('buy');
+
 
 
   }

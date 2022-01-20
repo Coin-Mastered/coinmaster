@@ -1,11 +1,7 @@
-<!--         <img src={{Tether}} class="Tether-logo" alt="Tether" width="40" height="40"> -->
-
-
-
 
 
 <div>
-  <h2>Cryptos Available</h2>
+
   <div id="cryptoCards">
     <div *ngFor="let c of cryptos" class="cryptoCard">
       <div id="cardTitle">
@@ -16,7 +12,7 @@
 
         <div id="cryptoCode">{{ c.code }}</div>
       </div>
-      <div id="spotPrice">spotPirceHolder{{ c.spotPrice }}</div>
+      <div id="spotPrice">{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
         <div id="buyPrice">Buy ${{ c.buyPrice ?? "NA" }}</div>
@@ -29,9 +25,7 @@
 </div>
 
 
-<p *ngIf="cryptos.length == 0">No Data Received</p>
-
-
+<p *ngIf="cryptos.length == 0">There is no data fetched.</p>
 
 
 
@@ -45,3 +39,4 @@
     <li class="list-group-item  text-center">3rd Place</li>
   </ul>
 </div>
+

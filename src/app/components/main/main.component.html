@@ -1,68 +1,8 @@
-<!-- <div class="row">
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        <img src={{bitcoin}} class="Bitcoin-logo" alt="Bitcoin" width="40" height="40">
-        <h5 class="card-title">Bitcoin</h5>
-        <p class="card-text">Current Buying price: </p>
-        <p class="card-text">Current Selling price:</p>
-        <button type="button" class="btn btn-primary">Buy</button>
-        <button type="button" class="btn btn-primary">Sell</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        <img src={{ethereum}} class="Ethereum-logo" alt="Ethereum" width="40" height="40">
-        <h5 class="card-title">Ethereum</h5>
-        <p class="card-text">Current Buying price: </p>
-        <p class="card-text">Current Selling price:</p>
-        <button type="button" class="btn btn-primary">Buy</button>
-        <button type="button" class="btn btn-primary">Sell</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        <img src={{cardano}} class="Cardano-logo" alt="Cardano" width="40" height="40">
-        <h5 class="card-title">Cardano</h5>
-        <p class="card-text">Current Buying price: </p>
-        <p class="card-text">Current Selling price:</p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#car-buy">Buy</button>
-        <button type="button" class="btn btn-primary">Sell</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!--         <img src={{Tether}} class="Tether-logo" alt="Tether" width="40" height="40"> -->
 
- Modal stuff-->
-<!-- <div
-  class="modal fade"
-  id="car-buy"
-  tabindex="-1"
-  aria-labelledby="modal-title"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-title">Buy</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">Current Buy price:</div>
-      <div class="modal-footer">
-        <button class="btn btn-primary">Buy</button>
-      </div>
-    </div>
-  </div>
-</div> -->
+
+
+
 
 <div>
   <h2>Cryptos Available</h2>
@@ -70,19 +10,38 @@
     <div *ngFor="let c of cryptos" class="cryptoCard">
       <div id="cardTitle">
         <div id="cryptoName">{{ c.name }}</div>
+
+
+        <img src='assets/{{c.code}}.png' class='{{c.name}}-logo' alt='{{c.name}}' width="50" height="40">
+
         <div id="cryptoCode">{{ c.code }}</div>
       </div>
       <div id="spotPrice">spotPirceHolder{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
         <div id="buyPrice">Buy ${{ c.buyPrice ?? "NA" }}</div>
+
         <div id="sellPrice">Sell ${{ c.sellPrice ?? "NA" }}</div>
+
       </div>
     </div>
   </div>
 </div>
 
-<p *ngIf="cryptos.length == 0">Cryptos Empty</p>
 
-<p *ngIf="cryptos.length != 0">c length: {{ cryptos.length }}</p>
-<p>End Line</p>
+<p *ngIf="cryptos.length == 0">No Data Received</p>
+
+
+
+
+
+<div class="card " style="width: 120rem;">
+  <div class="card-header text-center">
+    Top 3 earners
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item  text-center">1st Place</li>
+    <li class="list-group-item  text-center">2nd Place</li>
+    <li class="list-group-item  text-center">3rd Place</li>
+  </ul>
+</div>

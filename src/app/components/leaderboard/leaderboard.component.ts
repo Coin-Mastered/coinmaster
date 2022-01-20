@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.css']
 })
-export class LeaderboardComponent implements OnInit {
+export class LeaderboardComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

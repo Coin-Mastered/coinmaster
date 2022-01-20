@@ -1,12 +1,17 @@
-import { HttpClient } from '@angular/common/http';
+import { TradePriceService } from './../services/trade-price.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 // import axios from 'axios';
 
 import { PricesService } from '../services/prices.service';
+import { Injectable } from '@angular/core';
 
 /**
  * This holds the model for single crypto card to be rendered
  */
 
+@Injectable({
+  providedIn: 'root',
+})
 export class CryptoCard {
   name: string;
   code: string;
@@ -20,15 +25,18 @@ export class CryptoCard {
 
   userId: number = 0;
 
+  // tradePriceService: TradePriceService;
+
   // ps: PricesService = new PricesService();
 
   // https://api.coinbase.com/v2/prices/BTC-USD/sell
 
   public constructor(
-    code: string //, private ps: PricesService) {
+    // code: string //, private ps: PricesService) {
+    private tradePriceService: TradePriceService
   ) {
-    this.name = this.populateName(code);
-    this.code = code;
+    // this.name = this.populateName(code);
+    // this.code = code;
     console.log('pre fetchbuyprice in cryptocard'); // this runs
 
     // this.ps
@@ -75,6 +83,10 @@ export class CryptoCard {
   // fetchBuyPrice(code: string): Observable<BuySell> {
   //   return HttpClient.get<BuySell>(`${urlC}code-USD/buy`);
   // }
+
+  tradePrice(buyOrSell: string) {
+    this.tradePriceService.tradePrice();
+  }
 
   // buy Method
 

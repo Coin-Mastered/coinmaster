@@ -1,5 +1,5 @@
+import { CryptoCard } from './../../models/CryptoCard';
 import { Component, OnInit } from '@angular/core';
-import { CryptoCard } from '../../models/CryptoCard';
 
 @Component({
   selector: 'app-main',
@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
 
-  constructor() {}
+  constructor(private cryptoCard: CryptoCard) {}
 
   ngOnInit(): void {
     // let BTC = new CryptoCard('BTC');
@@ -25,10 +25,11 @@ export class MainComponent implements OnInit {
   }
 
   setCryptos() {
-    this.coins.forEach((coin) => this.cryptos.push(new CryptoCard(coin)));
-
+    // this.coins.forEach((coin) => this.cryptos.push(new CryptoCard(coin)));
     // let BTC = new CryptoCard('BTC');
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
+    console.log('setCryptos()');
+    this.cryptoCard.tradePrice('buy');
   }
 }

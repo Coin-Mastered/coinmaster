@@ -32,7 +32,7 @@ export class TradePriceService {
   //   return 'Returned Before fetching';
   // }
 
-  tradePriceService(cryptoCard: CryptoCard): any {
+  tradePriceService(cryptoCard: CryptoCard) {
     let amount: string;
     console.log('tradePriceService Called');
 

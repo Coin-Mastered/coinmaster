@@ -94,8 +94,8 @@ export class CryptoCard {
   //   }
   // }
 
-  tradePrice(buyOrSell: string) {
-    console.log(this);
+  async tradePrice(buyOrSell: string) {
+    // console.log(this); //  show buyPrice as expected ?????
     this.tradePriceService.tradePriceService(this);
     console.log(this); // shows buyprice at this.buyPrice
   }

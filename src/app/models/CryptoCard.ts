@@ -35,27 +35,7 @@ export class CryptoCard {
 
   // https://api.coinbase.com/v2/prices/BTC-USD/sell
 
-  public constructor(
-    // code: string //, private ps: PricesService) {
-    private tradePriceService: TradePriceService
-  ) {
-    // this.name = this.populateName(code);
-    // this.code = code;
-    // console.log('pre fetchbuyprice in cryptocard'); // this runs
-    // this.ps
-    //   .fetchBuyPrice(code)
-    //   .subscribe((ob) => (this.buyPrice = ob.data.amount));
-    // this.buyPrice = this.ps.fetchBuyPrice(code);
-    // this.buyPrice = this.ps.fetchBuyPriceAxios(code);
-  }
-
-  // constructor (private pricesService : PricesService) {}
-
-  // Method to evaluate name
-
-  // callPsFetchBuyPrice() {
-  //   this.ps.fetchBuyPrice(this.code);
-  // }
+  public constructor(private tradePriceService: TradePriceService) {}
 
   populateName(code: string) {
     switch (code) {
@@ -78,6 +58,13 @@ export class CryptoCard {
       default:
         return 'Name not found';
     }
+  }
+
+  makeCryptoCard(code: string) {
+    this.code = code;
+    this.name = this.populateName(this.code);
+    this.tradePriceBuy();
+    this.tradePriceSell();
   }
 
   //Fetch Buy Price

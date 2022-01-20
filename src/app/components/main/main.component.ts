@@ -33,16 +33,8 @@ export class MainComponent implements OnInit {
     // this.coins.forEach((coin) => this.cryptos.push(new CryptoCard(coin)));
     this.coins.forEach((coin) => {
       let card: CryptoCard = new CryptoCard(this.tradePriceService);
-
-      card.code = coin;
-      // card.tradePrice('buy');
-      // card.tradePrice('sell');
-      card.tradePriceBuy();
-      card.tradePriceSell();
-
-      console.log('L40', card);
+      card.makeCryptoCard(coin);
       this.cryptos.push(card);
-      // console.log(card.buyPrice ?? 'Card.buyPrice still not loaded') but works;
     });
 
     // let BTC = new CryptoCard('BTC');

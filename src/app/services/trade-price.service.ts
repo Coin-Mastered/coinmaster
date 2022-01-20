@@ -223,13 +223,16 @@ export class TradePriceService {
       power = +powerR;
       let forReturn = 1 / left;
       power = Math.pow(10, power);
-      return (forReturn * power).toString();
+
+      let temp = forReturn * power;
+
+      return (forReturn * power).toFixed(2);
       // console.log(left + power);
     } else {
       // console.log('elseE hit');
       // console.log(`Left side ${price} `);
 
-      return (1 / +price).toString();
+      return (1 / +price).toFixed(2);
     }
 
     // let atE = isE ? test.indexOf('e') : 0;

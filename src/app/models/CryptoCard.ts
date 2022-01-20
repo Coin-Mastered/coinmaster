@@ -96,11 +96,27 @@ export class CryptoCard {
   //   }
   // }
 
-  tradePrice(buyOrSell: string) {
+  // tradePrice(buyOrSell: string) {
+  //   // console.log(this); //  show buyPrice as expected ?????
+  //   this.buyOrSell = buyOrSell;
+  //   // console.log(this.buyOrSell);
+  //   this.tradePriceService.tradePriceService(this);
+  //   console.log(this); // shows buyprice at this.buyPrice
+  // }
+
+  tradePriceBuy() {
     // console.log(this); //  show buyPrice as expected ?????
-    this.buyOrSell = buyOrSell;
+    // this.buyOrSell = buyOrSell;
     // console.log(this.buyOrSell);
-    this.tradePriceService.tradePriceService(this);
+    this.tradePriceService.tradePriceBuyService(this);
+    console.log(this); // shows buyprice at this.buyPrice
+  }
+
+  tradePriceSell() {
+    // console.log(this); //  show buyPrice as expected ?????
+    // this.buyOrSell = buyOrSell;
+    // console.log(this.buyOrSell);
+    this.tradePriceService.tradePriceSellService(this);
     console.log(this); // shows buyprice at this.buyPrice
   }
 

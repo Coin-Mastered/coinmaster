@@ -35,9 +35,12 @@ export class MainComponent implements OnInit {
       let card: CryptoCard = new CryptoCard(this.tradePriceService);
 
       card.code = coin;
-      card.tradePrice('buy');
-      card.tradePrice('sell');
-      // console.log(card);
+      // card.tradePrice('buy');
+      // card.tradePrice('sell');
+      card.tradePriceBuy();
+      card.tradePriceSell();
+
+      console.log('L40', card);
       this.cryptos.push(card);
       // console.log(card.buyPrice ?? 'Card.buyPrice still not loaded') but works;
     });

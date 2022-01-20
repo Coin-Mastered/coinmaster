@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-  bitcoin = 'assets/bitcoin-btc-logo.png';
-  cardano = 'assets/cardano-ada-logo.png';
-  ethereum =
-    'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png';
+  // bitcoin = 'assets/bitcoin-btc-logo.png';
+  // cardano = 'assets/cardano-ada-logo.png';
+  // ethereum =
+  //   'assets/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png';
   cryptos: CryptoCard[] = [];
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
     // let BTC = new CryptoCard('BTC');
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
-    console.log('setCryptos()');
+    // console.log('setCryptos()');
 
     // this.cryptoCard.tradePrice('buy');
   }

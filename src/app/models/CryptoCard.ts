@@ -96,7 +96,7 @@ export class CryptoCard {
     // this.buyOrSell = buyOrSell;
     // console.log(this.buyOrSell);
     this.tradePriceService.tradePriceBuyService(this);
-    console.log(this); // shows buyprice at this.buyPrice
+    // console.log(this); // shows buyprice at this.buyPrice
   }
 
   tradePriceSell() {
@@ -104,7 +104,7 @@ export class CryptoCard {
     // this.buyOrSell = buyOrSell;
     // console.log(this.buyOrSell);
     this.tradePriceService.tradePriceSellService(this);
-    console.log(this); // shows buyprice at this.buyPrice
+    // console.log(this); // shows buyprice at this.buyPrice
   }
 
   // buy Method

@@ -68,7 +68,7 @@ export class TradePriceService {
 
   tradePriceBuyService(cryptoCard: CryptoCard) {
     let amount: string;
-    console.log('tradePriceService Called');
+    // console.log('tradePriceService Called');
 
     this.http
       .get<BuySell>(
@@ -80,7 +80,7 @@ export class TradePriceService {
       )
       .subscribe({
         next: (v) => {
-          console.log('Amount is ' + v.data.amount); // Amount is 43079.23
+          // console.log('Amount is ' + v.data.amount); // Amount is 43079.23
           cryptoCard.buyPrice = v.data.amount;
 
           // return v.data.amount;
@@ -88,14 +88,14 @@ export class TradePriceService {
         },
         error: (e) => console.error(e),
         complete: () => {
-          console.info('complete');
+          // console.info('complete');
         },
       });
   }
 
   tradePriceSellService(cryptoCard: CryptoCard) {
     let amount: string;
-    console.log('tradePriceService Called');
+    // console.log('tradePriceService Called');
 
     this.http
       .get<BuySell>(
@@ -107,7 +107,7 @@ export class TradePriceService {
       )
       .subscribe({
         next: (v) => {
-          console.log('Amount is ' + v.data.amount); // Amount is 43079.23
+          // console.log('Amount is ' + v.data.amount); // Amount is 43079.23
           cryptoCard.sellPrice = v.data.amount;
 
           // return v.data.amount;
@@ -115,7 +115,7 @@ export class TradePriceService {
         },
         error: (e) => console.error(e),
         complete: () => {
-          console.info('complete');
+          // console.info('complete');
         },
       });
   }

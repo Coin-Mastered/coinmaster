@@ -1,3 +1,4 @@
+import { BuySell } from './buysell';
 import { TradePriceService } from './../services/trade-price.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 // import axios from 'axios';
@@ -22,6 +23,7 @@ export class CryptoCard {
   sellPrice: string;
 
   balance: string;
+  buySell: BuySell;
 
   userId: number = 0;
 
@@ -37,14 +39,11 @@ export class CryptoCard {
   ) {
     // this.name = this.populateName(code);
     // this.code = code;
-    console.log('pre fetchbuyprice in cryptocard'); // this runs
-
+    // console.log('pre fetchbuyprice in cryptocard'); // this runs
     // this.ps
     //   .fetchBuyPrice(code)
     //   .subscribe((ob) => (this.buyPrice = ob.data.amount));
-
     // this.buyPrice = this.ps.fetchBuyPrice(code);
-
     // this.buyPrice = this.ps.fetchBuyPriceAxios(code);
   }
 
@@ -85,7 +84,14 @@ export class CryptoCard {
   // }
 
   tradePrice(buyOrSell: string) {
-    this.tradePriceService.tradePrice();
+    let tps = this.tradePriceService;
+    let amt: string;
+    fetcher();
+    async function fetcher() {
+      amt = await tps.tradePrice();
+      console.log;
+      return amt;
+    }
   }
 
   // buy Method

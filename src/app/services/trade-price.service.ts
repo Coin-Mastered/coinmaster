@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { FileWatcherEventKind } from 'typescript';
 import { BuySell } from '../models/buysell';
 
 @Injectable({
@@ -11,23 +12,44 @@ export class TradePriceService {
   buySell: BuySell;
   constructor(private http: HttpClient) {}
 
-  public tradePrice() {
+  // tradePrice() {
+  //   let amount: string;
+  //   console.log('tradePriceService Called');
+
+  //   this.http
+  //     .get<BuySell>('https://api.coinbase.com/v2/prices/BTC-USD/sell', {
+  //       observe: 'body',
+  //       responseType: 'json',
+  //     })
+  //     .subscribe((res: BuySell) => {
+  //       this.buySell = {
+  //         data: res.data,
+  //       };
+  //       console.log(res.data.amount); // works
+  //       return res.data.amount;
+  //     });
+  //   return 'Returned Before fetching';
+  // }
+
+  tradePrice(): any {
+    let amount: string;
     console.log('tradePriceService Called');
 
-    try {
-      this.http
-        .get<BuySell>('https://api.coinbase.com/v2/prices/BTC-USD/sell', {
-          observe: 'body',
-          responseType: 'json',
-        })
-        .subscribe((res: BuySell) => {
-          this.buySell = {
-            data: res.data,
-          };
-          console.log(res.data.amount);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+    this.http
+      .get<BuySell>('https://api.coinbase.com/v2/prices/BTC-USD/sell', {
+        observe: 'body',
+        responseType: 'json',
+      })
+      .subscribe({
+        next: (v) => {
+          console.log('Amount is ' + v.data.amount);
+          return v.data.amount;
+          console.log('no run');
+        },
+        error: (e) => console.error(e),
+        complete: () => {
+          console.info('complete');
+        },
+      });
   }
 }

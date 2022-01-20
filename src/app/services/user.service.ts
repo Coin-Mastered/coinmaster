@@ -23,17 +23,17 @@ export class UserService {
 
 
   // Find by username and check password
- /* public login(username:string, password:string){
+ public login(username:string, password:string){
 
     let req: any = {
       "username" : username,
       "password" : password
     }
 
-    return this.http.post(`${awsUrl}insertloginmapping`, request, {responseType: 'text' as 'json'})
+    return this.http.post(`${awsUrl}insertloginmapping`, Request, {responseType: 'text' as 'json'})
 
 
-  }*/
+  }
 
   registerUser(user: User): Observable<User>{
     return this.http.post<User>(`${awsUrl}/add`, user, this.httpOptions)

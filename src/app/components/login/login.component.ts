@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
- /* username : string;
-  password : string;*/
+  username : string;
+  password : string;
 
-  constructor() { } // insert private user service and router
+  constructor(private UserService: UserService, private Router: Router) { } // insert private user service and router
 
   // Todo: Create loggin method
 
- /* doLogin(){
+  doLogin(){
 
     let resp = this.UserService.login(this.username, this.password)
 
-    resp.subscribe(data => {this.router.navigate(['/home'])
+    resp.subscribe(data => {this.Router.navigate(['/home'])
   },
-  error => this.router.navigate(['/login']))
-  }*/
+  error => this.Router.navigate(['/login']))
+  }
 }

@@ -79,4 +79,9 @@ export class CryptoCard {
   // buy Method
 
   // sell Method
+
+
+
+
+
 }

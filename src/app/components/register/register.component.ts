@@ -16,9 +16,9 @@ export class RegisterComponent{
   public clientMessage = new ClientMessage('')
 
 
-  constructor() { }// Insert private user service
+  constructor(private userService: UserService) { }// Insert private user service
 
-  /*public registerUser(): void{
+  public registerUser(): void{
 
     this.user.wallet.push(this.wallet);
 
@@ -27,7 +27,7 @@ export class RegisterComponent{
         data => this.clientMessage.message = `Successfully registersed ${data.username}`,
         error => this.clientMessage.message = `Something went wrong. Error: ${error}`
       )
-  }*/
+  }
 
 
 }

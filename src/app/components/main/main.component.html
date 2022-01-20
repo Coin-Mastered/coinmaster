@@ -68,8 +68,16 @@
   <h2>Cryptos Available</h2>
   <div id="cryptoCards">
     <div *ngFor="let c of cryptos" class="cryptoCard">
-      <div id="cryptoName">{{ c.name }}</div>
-      <!-- <p>Buy: {{ c.buyPrice }}</p> -->
+      <div id="cardTitle">
+        <div id="cryptoName">{{ c.name }}</div>
+        <div id="cryptoCode">{{ c.code }}</div>
+      </div>
+      <div id="spotPrice">spotPirceHolder{{ c.spotPrice }}</div>
+
+      <div id="buySellPrice">
+        <div id="buyPrice">Buy ${{ c.buyPrice ?? "NA" }}</div>
+        <div id="sellPrice">Sell ${{ c.sellPrice ?? "NA" }}</div>
+      </div>
     </div>
   </div>
 </div>

@@ -15,3 +15,30 @@
 #cryptoName {
   color: green;
 }
+
+#buySellPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+#buySellPrice > div {
+  margin: 5px;
+}
+
+#cardTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+#cryptoCode {
+  font-weight: 600;
+}
+
+#spotPrice {
+  display: flex;
+  justify-content: center;
+  border: 1px solid grey;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 3px;
+}

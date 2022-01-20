@@ -12,11 +12,11 @@ export class CryptoCard {
   code: string;
   // logo: string;
 
-  // spotPrice: number;
+  spotPrice: string;
   buyPrice: string;
-  // sellPrice: number;
+  sellPrice: string;
 
-  // balance: number;
+  balance: string;
 
   userId: number = 0;
 

@@ -21,9 +21,6 @@
   justify-content: space-between;
 }
 
-*button{
-
-
 #buySellPrice > div {
   margin: 5px;
 }
@@ -37,7 +34,6 @@
   font-weight: 600;
 }
 
-
 #spotPrice {
   display: flex;
   justify-content: center;
@@ -45,8 +41,9 @@
   margin-left: 3px;
   margin-right: 3px;
   padding: 3px;
+}
 
-.card{
+.card {
   margin: 0 auto;
   float: none;
   margin-bottom: 10px;
@@ -54,25 +51,23 @@
   margin-left: 50px;
 }
 
-.card2{
+.card2 {
   margin: 0 auto;
   float: right;
   margin-bottom: 10px;
   margin-top: 15px;
   margin-left: 200px;
-
 }
 
 .row {
-  display:flex;
-  flex-wrap: wrap ;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.row > div[class*='col-']{
-display: flex;
-}*/
-
-#cryptoCards {
+.row > div[class*="col-"] {
+  display: flex;
+}
+*/ #cryptoCards {
   display: flex;
   flex-wrap: wrap;
 }
@@ -122,7 +117,7 @@ display: flex;
 
 .background {
   /* CPU chip https://images.unsplash.com/photo-1513366976578-e01c21fb9c76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 */
-  background: url('https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80');
+  background: url("https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80");
   background-size: cover;
   filter: blur(10px);
   height: 105%;
@@ -163,4 +158,12 @@ h2 {
   margin-bottom: 15px;
   display: flex;
   flex-wrap: wrap;
+}
+
+#buyPrice,
+#sellPrice {
+  border: 1px solid blue;
+  border-radius: 3px;
+  padding-left: 2px;
+  padding-right: 2px;
 }

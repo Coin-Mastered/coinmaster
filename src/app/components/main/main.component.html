@@ -1,9 +1,5 @@
 <!--         <img src={{Tether}} class="Tether-logo" alt="Tether" width="40" height="40"> -->
 
-
-
-
-
 <div>
   <h2>Cryptos Available</h2>
   <div id="cryptoCards">
@@ -11,37 +7,35 @@
       <div id="cardTitle">
         <div id="cryptoName">{{ c.name }}</div>
 
-
-        <img src='assets/{{c.code}}.png' class='{{c.name}}-logo' alt='{{c.name}}' width="50" height="40">
+        <img
+          src="assets/{{ c.code }}.png"
+          class="{{ c.name }}-logo"
+          alt="{{ c.name }}"
+          width="50"
+          height="40"
+        />
 
         <div id="cryptoCode">{{ c.code }}</div>
       </div>
-      <div id="spotPrice">spotPirceHolder{{ c.spotPrice }}</div>
+      <div id="spotPrice">{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
         <div id="buyPrice">Buy ${{ c.buyPrice ?? "NA" }}</div>
 
         <div id="sellPrice">Sell ${{ c.sellPrice ?? "NA" }}</div>
-
       </div>
+      <div *ngIf="c.userId != 0" id="user">Balance</div>
     </div>
   </div>
 </div>
 
-
 <p *ngIf="cryptos.length == 0">No Data Received</p>
 
-
-
-
-
-<div class="card " style="width: 120rem;">
-  <div class="card-header text-center">
-    Top 3 earners
-  </div>
+<div class="card" style="width: 120rem">
+  <div class="card-header text-center">Top 3 earners</div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item  text-center">1st Place</li>
-    <li class="list-group-item  text-center">2nd Place</li>
-    <li class="list-group-item  text-center">3rd Place</li>
+    <li class="list-group-item text-center">1st Place</li>
+    <li class="list-group-item text-center">2nd Place</li>
+    <li class="list-group-item text-center">3rd Place</li>
   </ul>
 </div>

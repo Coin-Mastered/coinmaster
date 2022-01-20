@@ -12,7 +12,6 @@ import { LoginComponent } from './components/login/login.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,17 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
     WalletComponent,
     LoginComponent,
     LeaderboardComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
-
+    HttpClientModule,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+
   providers: [],
   bootstrap: [AppComponent],
 })

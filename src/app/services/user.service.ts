@@ -1,6 +1,6 @@
+import { User } from './../models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http'
-import { User } from '../models/user';
 import { catchError, Observable, throwError } from 'rxjs';
 import { awsUrl } from 'src/environments/environment';
 

@@ -23,5 +23,6 @@ export class LoginComponent {
     resp.subscribe(data => {this.Router.navigate(['/home'])
   },
   error => this.Router.navigate(['/login']))
+  //console.log("Hello There")
   }
 }

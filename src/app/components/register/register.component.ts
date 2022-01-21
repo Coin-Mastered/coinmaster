@@ -27,6 +27,7 @@ export class RegisterComponent{
         data => this.clientMessage.message = `Successfully registersed ${data.username}`,
         error => this.clientMessage.message = `Something went wrong. Error: ${error}`
       )
+      //console.log("Pineapples")
   }
 
 

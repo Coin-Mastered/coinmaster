@@ -28,17 +28,21 @@
       <div id="spotPrice">{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
-        <button type="button" class="btn btn-primary btn-sm" href='#' role="button">Buy ${{ c.buyPrice ?? "NA" }}</button>
-
-        <button type="button" class="btn btn-primary btn-sm" href='#' role="button">Sell ${{ c.sellPrice ?? "NA" }}</button>
+        <input type="button" class="btn btn-primary btn-sm" value='Buy ${{ c.buyPrice ?? "NA" }}'>
+        <input type="button" class="btn btn-primary btn-sm" value='Sell ${{ c.sellPrice ?? "NA" }}'>
       </div>
-      <div *ngIf="c.userId != 0" id="user">Balance</div>
+      <!--<div *ngIf="c.userId != 0" id="user">Balance</div>-->
+      <form>
+        <div class="form-group">
+    <label for="Amount input">Amount</label>
+    <input type="number" class="form-control" id="inputamount" aria-describedby="amountHelp" placeholder="Enter amount">
+    <small id="amountHelp" class="form-text text-muted">For Buy enter USD for sell coin amount</small>
+  </div>
+      </form>
     </div>
   </div>
 </div>
-
 <p *ngIf="cryptos.length == 0">There is no data fetched.</p>
-
 <div class="card" style="width: 120rem">
   <div class="card-header text-center">Top 3 earners</div>
   <ul class="list-group list-group-flush">

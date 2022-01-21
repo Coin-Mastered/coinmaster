@@ -11,7 +11,7 @@ import { ClientMessage } from 'src/app/models/client-message';
 export class RegisterComponent{
 
   title = 'Register'
-  public user = new User(0, '', '', '', '', '', [])
+  public user = new User( '', '', '', '', '', [])
   public wallet = new Wallet('USD','100000');
   public clientMessage = new ClientMessage('')
 
@@ -20,8 +20,7 @@ export class RegisterComponent{
 
   public registerUser(): void{
 
-    this.user.wallet.push(this.wallet);
-
+    this.user.wallets.push(this.wallet);
     this.userService.registerUser(this.user)
       .subscribe(
         data => this.clientMessage.message = `Successfully registered ${data.username}`,

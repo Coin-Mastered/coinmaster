@@ -1,3 +1,5 @@
+import { Data } from './../../models/buysell';
+import { PersistService } from './../../services/persist.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,7 +14,7 @@ export class LoginComponent {
   username : string;
   password : string;
 
-  constructor(private UserService: UserService, private Router: Router) { } // insert private user service and router
+  constructor(private UserService: UserService, private Router: Router, private per: PersistService) { } // insert private user service and router
 
   // Todo: Create loggin method
 
@@ -20,9 +22,12 @@ export class LoginComponent {
 
     let resp = this.UserService.login(this.username, this.password)
 
-    resp.subscribe(data => {this.Router.navigate(['/home'])
-  },
-  error => this.Router.navigate(['/login']))
-  //console.log("Hello There")
+    console.log(this.username, this.password)
+
+    resp.subscribe(data => {console.log(data), this.per.set('1',data), console.log(this.per.get('1')),this.Router.navigate(['/home'])
+    },error => this.Router.navigate(['/login']))
+
+
+
   }
 }

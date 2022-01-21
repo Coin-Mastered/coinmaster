@@ -11,8 +11,8 @@ import { ClientMessage } from 'src/app/models/client-message';
 export class RegisterComponent{
 
   title = 'Register'
-  public user = new User(0, '', '', '', '', '')
-  public wallet = new Wallet('','');
+  public user = new User(0, '', '', '', '', '', [])
+  public wallet = new Wallet('USD','100000');
   public clientMessage = new ClientMessage('')
 
 
@@ -24,7 +24,7 @@ export class RegisterComponent{
 
     this.userService.registerUser(this.user)
       .subscribe(
-        data => this.clientMessage.message = `Successfully registersed ${data.username}`,
+        data => this.clientMessage.message = `Successfully registered ${data.username}`,
         error => this.clientMessage.message = `Something went wrong. Error: ${error}`
       )
       //console.log("Pineapples")

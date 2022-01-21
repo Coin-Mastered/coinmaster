@@ -7,7 +7,7 @@ import { awsUrl } from 'src/environments/environment';
 
 
 //Need to make a url
-const url = `${awsUrl}/users`;
+const url = `${awsUrl}api/users`;
 
 
 @Injectable({
@@ -30,13 +30,13 @@ export class UserService {
       "password" : password
     }
 
-    return this.http.post(`${awsUrl}/login`, Request, {responseType: 'text' as 'json'})
+    return this.http.post(`${url}/login`, Request, {responseType: 'text' as 'json'})
 
 
   }
 
   registerUser(user: User): Observable<User>{
-    return this.http.post<User>(`${awsUrl}/save`, user, this.httpOptions)
+    return this.http.post<User>(`${url}/save`, user, this.httpOptions)
       .pipe(catchError(this.handleError))
   }
 

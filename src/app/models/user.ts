@@ -16,6 +16,7 @@ export class User{
     username: string,
     password: string,
     email: string,
+    wallet: Wallet[]
 ) {
     this.id = id
     this.firstName = firstName
@@ -23,6 +24,7 @@ export class User{
     this.username = username
     this.password = password
     this.email = email
+    this.wallet = wallet
 }
   }
 

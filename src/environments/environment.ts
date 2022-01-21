@@ -16,5 +16,5 @@ export const environment = {
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 
 
-export const awsUrl = ""
+export const awsUrl = "http://localhost:5000/"
 export const coinurl = "https://api.coinbase.com/v2/prices/"

@@ -12,7 +12,6 @@ import { LoginComponent } from './components/login/login.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { BtcBuyComponent } from './components/btc-buy/btc-buy.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { BtcBuyComponent } from './components/btc-buy/btc-buy.component';
     WalletComponent,
     LoginComponent,
     LeaderboardComponent,
-    BtcBuyComponent,
   ],
   imports: [
     BrowserModule,

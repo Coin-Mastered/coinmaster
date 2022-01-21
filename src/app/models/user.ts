@@ -29,11 +29,11 @@ export class User{
   export class Wallet{
 
     assetName: string;
-    amount: number;
+    amount: string;
 
     constructor(
       assetName: string,
-      amount: number
+      amount: string
     ){
       this.assetName = assetName
       this.amount = amount

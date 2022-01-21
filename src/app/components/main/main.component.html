@@ -1,3 +1,14 @@
+<div class="background-wrap">
+  <div class="background"></div>
+</div>
+
+<header>
+  <div class="p-5 text-center text-light">
+    <h1 class="mb-3">Available Coins</h1>
+  </div>
+
+<br/>
+
 <div>
   <div id="cryptoCards">
     <div *ngFor="let c of cryptos" class="cryptoCard">
@@ -17,9 +28,9 @@
       <div id="spotPrice">{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
-        <div id="buyPrice">Buy ${{ c.buyPrice ?? "NA" }}</div>
+        <button type="button" class="btn btn-primary btn-sm" href='#' role="button">Buy ${{ c.buyPrice ?? "NA" }}</button>
 
-        <div id="sellPrice">Sell ${{ c.sellPrice ?? "NA" }}</div>
+        <button type="button" class="btn btn-primary btn-sm" href='#' role="button">Sell ${{ c.sellPrice ?? "NA" }}</button>
       </div>
       <div *ngIf="c.userId != 0" id="user">Balance</div>
     </div>

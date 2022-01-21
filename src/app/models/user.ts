@@ -6,7 +6,7 @@ export class User{
   username: string;
   password: string;
   email: string;
-  wallet: any;
+  wallet: any[];
 
 
   constructor(
@@ -27,5 +27,16 @@ export class User{
   }
 
   export class Wallet{
+
+    assetName: string;
+    amount: number;
+
+    constructor(
+      assetName: string,
+      amount: number
+    ){
+      this.assetName = assetName
+      this.amount = amount
+    }
 
   }

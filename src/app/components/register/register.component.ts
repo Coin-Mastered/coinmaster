@@ -12,7 +12,7 @@ export class RegisterComponent{
 
   title = 'Register'
   public user = new User(0, '', '', '', '', '')
-  public wallet = new Wallet;
+  public wallet = new Wallet('','');
   public clientMessage = new ClientMessage('')
 
 

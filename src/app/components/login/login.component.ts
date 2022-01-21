@@ -19,6 +19,8 @@ export class LoginComponent {
   doLogin(){
 
     let resp = this.UserService.login(this.username, this.password)
+    console.log(this.password)
+    console.log(this.username)
 
     resp.subscribe(data => {this.Router.navigate(['/home'])
   },

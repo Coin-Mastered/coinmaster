@@ -30,7 +30,7 @@ export class UserService {
       "password" : password
     }
 
-    return this.http.post(`${url}/login`, Request, {responseType: 'text' as 'json'})
+    return this.http.post(`${url}/login`, req, {responseType: 'text' as 'json'})
 
 
   }

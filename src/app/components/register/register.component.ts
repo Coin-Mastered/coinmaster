@@ -2,6 +2,7 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User, Wallet } from 'src/app/models/user';
 import { ClientMessage } from 'src/app/models/client-message';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ export class RegisterComponent{
   public clientMessage = new ClientMessage('')
 
 
-  constructor(private userService: UserService) { }// Insert private user service
+  constructor(private userService: UserService, private Router: Router) { }// Insert private user service
 
   public registerUser(): void{
 

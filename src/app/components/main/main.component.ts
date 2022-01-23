@@ -1,6 +1,8 @@
+import { PersistService } from './../../services/persist.service';
 import { TradePriceService } from './../../services/trade-price.service';
 import { CryptoCard } from './../../models/CryptoCard';
 import { Component, OnInit } from '@angular/core';
+
 // import { coinurl } from 'src/environments/environment';
 
 @Component({
@@ -27,7 +29,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private cryptoCard: CryptoCard,
-    private tradePriceService: TradePriceService
+    private tradePriceService: TradePriceService,
+    private pre: PersistService
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +38,7 @@ export class MainComponent implements OnInit {
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
     this.setCryptos();
+    this.getId();
   }
 
   setCryptos() {
@@ -45,11 +49,19 @@ export class MainComponent implements OnInit {
       this.cryptos.push(card);
     });
 
+
     // let BTC = new CryptoCard('BTC');
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
     // console.log('setCryptos()');
 
     // this.cryptoCard.tradePrice('buy');
+  }
+
+  getId(){
+    let temp = this.pre.get('1')
+    temp = JSON.parse(temp)
+    temp = temp.id
+    console.log(temp)
   }
 }

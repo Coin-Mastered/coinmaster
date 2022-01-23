@@ -137,4 +137,6 @@ export class CryptoCard {
     this.tradePriceService.tradePriceSellService(this);
     // console.log(this); // shows buyprice at this.buyPrice
   }
+
+
 }

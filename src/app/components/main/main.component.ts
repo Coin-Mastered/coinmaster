@@ -64,4 +64,8 @@ export class MainComponent implements OnInit {
     temp = temp.id
     console.log(temp)
   }
+
+  consolecode(code: string){
+    console.log(code);
+  }
 }

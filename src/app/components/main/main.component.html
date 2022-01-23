@@ -28,8 +28,8 @@
       <div id="spotPrice">{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
-        <input type="button" class="btn btn-primary btn-sm" value='Buy ${{ c.buyPrice ?? "NA" }}'>
-        <input type="button" class="btn btn-primary btn-sm" value='Sell ${{ c.sellPrice ?? "NA" }}'>
+        <input (click)="consolecode(c.code)" class="btn btn-primary btn-sm" value='Buy ${{ c.buyPrice ?? "NA" }}' >
+        <input (click)="consolecode(c.code)" class="btn btn-primary btn-sm" value='Sell ${{ c.sellPrice ?? "NA" }}'>
       </div>
       <!--<div *ngIf="c.userId != 0" id="user">Balance</div>-->
       <form>

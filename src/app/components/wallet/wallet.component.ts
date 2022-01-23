@@ -1,3 +1,4 @@
+import { PersistService } from './../../services/persist.service';
 import { TradePriceService } from './../../services/trade-price.service';
 import { Component, OnInit } from '@angular/core';
 import { CryptoCard } from '../../models/CryptoCard';
@@ -22,13 +23,14 @@ export class WalletComponent implements OnInit {
 
   // http: HttpClient;
 
-  sell: any[] = [];
+  walletinfo;
 
-  constructor(private tradePriceService: TradePriceService) {}
+  constructor(private tradePriceService: TradePriceService, private pers: PersistService) {}
 
   ngOnInit(): void {
     this.setCryptos();
     //this.setSellPrices();
+    this.getwallet();
   }
 
   setCryptos() {
@@ -37,5 +39,11 @@ export class WalletComponent implements OnInit {
       card.makeCryptoCard(coin);
       this.cryptos.push(card);
     });
+  }
+
+  getwallet(){
+    this.walletinfo = this.pers.get('1');
+    console.log("At walletinfo")
+    return this.walletinfo;
   }
 }

@@ -40,7 +40,7 @@ export class RegisterComponent{
     this.user.wallets.push(this.USDTwallet);
     this.userService.registerUser(this.user)
       .subscribe(
-        data => this.clientMessage.message = `Successfully registered ${data.username}`,
+        data => {this.clientMessage.message = `Successfully registered ${data.username}`, this.Router.navigate(['/home'])},
         error => this.clientMessage.message = `Something went wrong. Error: ${error}`
       )
       //console.log("Pineapples")

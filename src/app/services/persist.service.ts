@@ -10,7 +10,7 @@ export class PersistService {
 
   set(key: string, data: any): void {
     try{
-      localStorage.setItem(key, JSON.stringify(data));
+      sessionStorage.setItem(key, JSON.stringify(data));
       console.log("at set")
     } catch (e){
       console.error('Error with local storage', e);
@@ -20,8 +20,9 @@ export class PersistService {
 
   get(key: string){
     try{
-      return JSON.parse(localStorage.getItem(key));
       console.log("at get")
+      return JSON.parse(sessionStorage.getItem(key));
+
     } catch (e){
       console.error('Error retrieving data', e);
       return null;

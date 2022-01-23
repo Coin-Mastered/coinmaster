@@ -18,31 +18,36 @@
 
 <!-- Jumbotron -->
 <header>
-<div class="p-5 text-center text-light">
-  <h1 class="mb-3">Wallet</h1>
-</div>
-<!-- Jumbotron -->
+  <div class="p-5 text-center text-light">
+    <h1 class="mb-3">Wallet</h1>
+  </div>
+  <!-- Jumbotron -->
 </header>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 <div id="cryptoCards">
   <div *ngFor="let c of cryptos" class="cryptoCard">
     <div id="cardTitle">
       <div id="cryptoName">{{ c.name }}</div>
-      <img src='assets/{{c.code}}.png' class='{{c.name}}-logo' alt='{{c.name}}' width="50" height="40">
+      <img
+        src="assets/{{ c.code }}.png"
+        class="{{ c.name }}-logo"
+        alt="{{ c.name }}"
+        width="50"
+        height="40"
+      />
       <div id="cryptoCode">{{ c.code }}</div>
     </div>
-    <div id="spotPrice">Amount: {{c.code}}</div>
-    </div>
+    <div id="spotPrice">Amount: {{ c.balance }}</div>
   </div>
-  <br/>
-  <br/>
-  <br/>
-  <div class="card w-75">
-    <div class="card-body">
-      <h5 class="card-title text-center">USD</h5>
-      <p class="card-text text-center">$ {{ walletinfo.substring(271, 279) }} </p>
-    </div>
+</div>
+<br />
+<br />
+<br />
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title text-center">USD {{ coinAmount.get("USD") }}</h5>
+    <!-- <p class="card-text text-center">$ {{ walletinfo.substring(271, 279) }}</p> -->
   </div>
-
+</div>

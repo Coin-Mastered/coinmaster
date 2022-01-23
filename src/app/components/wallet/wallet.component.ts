@@ -7,6 +7,7 @@ import {
   HttpClient,
   HttpHeaders,
 } from '@angular/common/http';
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 // import { coinurl } from 'src/environments/environment';
 
 // const url = `${coinurl}`;
@@ -42,8 +43,11 @@ export class WalletComponent implements OnInit {
   }
 
   getwallet(){
+    console.log("get wallet start")
     this.walletinfo = this.pers.get('1');
-    console.log("At walletinfo")
+    let temp = JSON.parse(this.walletinfo);
+    console.log(temp.wallets)
+    console.log("hello " + this.walletinfo.substring(271, 279))
     return this.walletinfo;
   }
 }

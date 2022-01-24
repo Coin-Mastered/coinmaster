@@ -1,18 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from './../login/login.component';
+import {
+  Component,
+  Injectable,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
 })
-export class NavComponent implements OnInit {
+@Injectable({
+  providedIn: 'root',
+})
+export class NavComponent implements OnInit, OnChanges {
+  title = 'CoinMasters';
+  image = 'assets/templogo.png';
+  isLoggedIn: boolean = false;
 
-  title = 'CoinMasters'
-  image = 'assets/templogo.png'
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
   }
 
+  ngOnInit(): void {
+    console.log(this.isLoggedIn);
+  }
+
+  setIsLoggeIn(isLogIn: boolean) {
+    this.isLoggedIn = isLogIn;
+  }
 }

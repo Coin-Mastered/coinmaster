@@ -27,14 +27,23 @@ export class MainComponent implements OnInit {
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
 
-  public BTC = "BTC"
+  public BTC = 'BTC';
   public amount: string;
   //public wallet = new Wallet('','');
   // coins: string[] = ['BTC'];
   //public something: any = {"BTC"}
   coinAmount: Map<string, string> = new Map();
 
-  coinMap = {BTC: "", ETH: "", LTC: "", ADA: "", DOT:"", XLM: "", DOGE: "", USDT: ""}
+  coinMap = {
+    BTC: '',
+    ETH: '',
+    LTC: '',
+    ADA: '',
+    DOT: '',
+    XLM: '',
+    DOGE: '',
+    USDT: '',
+  };
 
   constructor(
     private cryptoCard: CryptoCard,
@@ -49,6 +58,13 @@ export class MainComponent implements OnInit {
     this.setCryptos();
     this.getId();
     this.popmap();
+    console.log('refreshed');
+
+    this.inits();
+  }
+
+  inits() {
+    // setInterval(this.ngOnInit, 500);
   }
 
   setCryptos() {
@@ -59,7 +75,6 @@ export class MainComponent implements OnInit {
       this.cryptos.push(card);
     });
 
-
     // let BTC = new CryptoCard('BTC');
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
@@ -68,26 +83,26 @@ export class MainComponent implements OnInit {
     // this.cryptoCard.tradePrice('buy');
   }
 
-  getId(){
-    let temp = this.pre.get('1')
-    temp = JSON.parse(temp)
-    temp = temp.id
-    console.log(temp)
+  getId() {
+    let temp = this.pre.get('1');
+    temp = JSON.parse(temp);
+    temp = temp.id;
+    console.log(temp);
   }
 
-  consolecodebuy(code: string){
-    console.log("buy " + code);
+  consolecodebuy(code: string) {
+    console.log('buy ' + code);
+    console.log(this.cryptoCard.transactionAmount);
+  }
+
+  consolecodesell(code: string) {
+    console.log('sell ' + code);
     console.log(this.amount);
   }
 
-  consolecodesell(code: string){
-    console.log("sell " + code)
-    console.log(this.amount)
-  }
-
-  popmap(){
-    for (let i = 0; i < this.coins.length; i++){
-      this.coinAmount.set(this.coins[i], '')
+  popmap() {
+    for (let i = 0; i < this.coins.length; i++) {
+      this.coinAmount.set(this.coins[i], '');
     }
   }
 }

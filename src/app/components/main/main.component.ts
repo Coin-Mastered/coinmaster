@@ -64,9 +64,9 @@ export class MainComponent implements OnInit {
     // console.log(BTC); // logs out with name 'Bitcoin' as expected
     // this.cryptos.push(BTC);
     this.setCryptos();
-    this.getId();
+    //this.getId();
     this.popmap();
-    console.log('refreshed');
+    this.checkstorage();
 
     this.inits();
   }
@@ -91,17 +91,36 @@ export class MainComponent implements OnInit {
     // this.cryptoCard.tradePrice('buy');
   }
 
+  checkstorage(){
+    console.log("checking storage")
+    let temp = this.pre.get('1')
+    temp = JSON.parse(temp)
+    console.log(temp)
+  }
+
   getId(): number {
     let temp = this.pre.get('1');
-    temp = temp.id
-    console.log(temp);
-    return temp;
+    let tem = temp
+    if (typeof temp === 'string' || temp instanceof String){
+      console.log("Id temp is a string")
+      let fin = JSON.parse(tem)
+      fin = fin.id
+      console.log(fin)
+      return fin
+    } else{
+      console.log("ID temp is not a string")
+      let fin = tem.id
+      console.log(fin);
+      return fin;
+    }
+
   }
 
   buy(code: string): void {
    let temp = this.getId();
    this.obj.userId = temp
    this.obj.assetName = code;
+   console.log("Checking obj")
    console.log(this.obj)
    this.user.buycrypto(this.obj)
     .subscribe(

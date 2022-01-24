@@ -23,7 +23,7 @@ export class LoginComponent {
 
     let resp = this.UserService.login(this.username, this.password)
 
-    resp.subscribe(data => {console.log(data), this.per.set('1',data), console.log(this.per.get('1')), this.Router.navigate(['/home'])
+    resp.subscribe(data => {console.log(data), this.per.set('1',data), console.log(JSON.parse(this.per.get('1'))), this.Router.navigate(['/home'])
     },error => this.Router.navigate(['/login']))
 
 

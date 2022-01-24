@@ -1,8 +1,11 @@
-import { Wallet } from './../../models/user';
+import { UserService } from './../../services/user.service';
+import { cust, Wallet } from './../../models/user';
 import { PersistService } from './../../services/persist.service';
 import { TradePriceService } from './../../services/trade-price.service';
 import { CryptoCard } from './../../models/CryptoCard';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ClientMessage } from 'src/app/models/client-message';
 
 // import { coinurl } from 'src/environments/environment';
 
@@ -44,11 +47,16 @@ export class MainComponent implements OnInit {
     DOGE: '',
     USDT: '',
   };
+  public clientMessage = new ClientMessage('')
+
+  public obj = new cust (0, '', 0)
 
   constructor(
     private cryptoCard: CryptoCard,
     private tradePriceService: TradePriceService,
-    private pre: PersistService
+    private pre: PersistService,
+    private user: UserService,
+    private Router: Router
   ) {}
 
   ngOnInit(): void {
@@ -83,21 +91,35 @@ export class MainComponent implements OnInit {
     // this.cryptoCard.tradePrice('buy');
   }
 
-  getId() {
+  getId(): number {
     let temp = this.pre.get('1');
-    temp = JSON.parse(temp);
-    temp = temp.id;
+    temp = temp.id
     console.log(temp);
+    return temp;
   }
 
-  consolecodebuy(code: string) {
-    console.log('buy ' + code);
-    console.log(this.cryptoCard.transactionAmount);
+  buy(code: string): void {
+   let temp = this.getId();
+   this.obj.userId = temp
+   this.obj.assetName = code;
+   console.log(this.obj)
+   this.user.buycrypto(this.obj)
+    .subscribe(
+      data => {this.clientMessage.message = `Purchase complete`, this.pre.set('1',data), this.Router.navigate(['/wallet'])},
+      error => this.clientMessage.message = `Something went wrong. Error: ${error}`
+    )
   }
 
-  consolecodesell(code: string) {
-    console.log('sell ' + code);
-    console.log(this.amount);
+  sell(code: string): void {
+  let temp = this.getId();
+   this.obj.userId = temp
+   this.obj.assetName = code;
+   console.log(this.obj)
+   this.user.sellcrypto(this.obj)
+    .subscribe(
+      data => {this.clientMessage.message = `Purchase complete`,  this.pre.set('1',data), this.Router.navigate(['/wallet'])},
+      error => this.clientMessage.message = `Something went wrong. Error: ${error}`
+    )
   }
 
   popmap() {

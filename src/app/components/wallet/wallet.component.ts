@@ -51,10 +51,10 @@ export class WalletComponent implements OnInit {
   getwallet() {
     console.log('get wallet start');
     this.walletinfo = this.pers.get('1');
-    let temp = JSON.parse(this.walletinfo);
-    console.log(temp.wallets);
+    //let temp = JSON.parse(this.walletinfo);
+    console.log(this.walletinfo.wallets);
     // console.log("hello " + this.walletinfo.substring(271, 279))
-    let walletArr: Array<any> = temp.wallets;
+    let walletArr: Array<any> = this.walletinfo.wallets;
 
     for (let i = 0; i < walletArr.length; i++) {
       let c = walletArr[i].assetName;

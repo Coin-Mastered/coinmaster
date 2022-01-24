@@ -1,4 +1,4 @@
-import { User } from './../models/user';
+import { cust, User } from './../models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http'
 import { catchError, Observable, throwError } from 'rxjs';
@@ -37,6 +37,16 @@ export class UserService {
 
   registerUser(user: User): Observable<User>{
     return this.http.post<User>(`${url}/save`, user, this.httpOptions)
+      .pipe(catchError(this.handleError))
+  }
+
+  buycrypto(cust: cust): Observable<User>{
+    return this.http.post<User>(`${url}/buy`, cust, this.httpOptions)
+      .pipe(catchError(this.handleError))
+  }
+
+  sellcrypto(cust: cust): Observable<User>{
+    return this.http.post<User>(`${url}/sell`, cust, this.httpOptions)
       .pipe(catchError(this.handleError))
   }
 

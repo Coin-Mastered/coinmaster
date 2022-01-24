@@ -43,4 +43,20 @@ export class User{
 
   }
 
+  export class cust{
+    amount: number;
+    assetName: string;
+    userId: number;
+
+      constructor(
+        amount: number,
+        assetName: string,
+        userId: number
+      ){
+        this.amount = amount
+        this.assetName = assetName
+        this.userId = userId
+      }
+  }
+
 

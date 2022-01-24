@@ -30,13 +30,13 @@
         <div id="buySellPrice">
           <input
             type="submit"
-            (click)="c.buyCrypto()"
+            (click)="buy(c.code)"
             class="btn btn-primary btn-sm"
             value="Buy ${{ c.buyPrice ?? 'NA' }}"
           />
           <input
             type="submit"
-            (click)="c.sellCrypto()"
+            (click)="sell(c.code)"
             class="btn btn-primary btn-sm"
             value="Sell ${{ c.sellPrice ?? 'NA' }}"
           />
@@ -46,7 +46,7 @@
           <div class="form-group">
             <label for="Amount input">Amount</label>
             <input
-              [(ngModel)]="c.transactionAmount"
+              [(ngModel)]="obj.amount"
               name="c.transactionAmount"
               type="number"
               class="form-control"

@@ -32,6 +32,8 @@ export class CryptoCard {
 
   userId: number = 0;
 
+  transactionAmount: number = 0;
+
   // tradePriceService: TradePriceService;
 
   // ps: PricesService = new PricesService();
@@ -138,5 +140,11 @@ export class CryptoCard {
     // console.log(this); // shows buyprice at this.buyPrice
   }
 
+  buyCrypto() {
+    console.log(`Buy ${this.transactionAmount} of  ${this.code} `);
+  }
 
+  sellCrypto() {
+    console.log(`Sell ${this.transactionAmount} of ${this.code}`);
+  }
 }

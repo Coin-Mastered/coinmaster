@@ -1,9 +1,12 @@
 import { LoginComponent } from './../login/login.component';
 import {
+  AfterViewInit,
   Component,
+  DoCheck,
   Injectable,
   OnChanges,
   OnInit,
+  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 
@@ -15,18 +18,24 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class NavComponent implements OnInit, OnChanges {
+export class NavComponent implements DoCheck {
   title = 'CoinMasters';
   image = 'assets/templogo.png';
   isLoggedIn: boolean = false;
 
+  change = new SimpleChange(this.isLoggedIn, !this.isLoggedIn, true);
+
   constructor() {}
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
+  ngDoCheck(): void {
+    if (this.isLoggedIn) {
+      console.log('user is looged in ' + this.isLoggedIn);
+    } else {
+      console.log('No user found ' + this.isLoggedIn);
+    }
   }
 
   ngOnInit(): void {
-    console.log(this.isLoggedIn);
+    console.log(this.change);
   }
 
   setIsLoggeIn(isLogIn: boolean) {

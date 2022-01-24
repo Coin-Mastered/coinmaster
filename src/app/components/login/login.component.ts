@@ -47,4 +47,8 @@ export class LoginComponent {
       (error) => this.Router.navigate(['/login'])
     );
   }
+
+  doLogOut() {
+    this.per.set('1', null);
+  }
 }

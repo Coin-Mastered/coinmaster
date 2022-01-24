@@ -248,4 +248,12 @@ export class TradePriceService {
 
     // console.log(forReturn * power);
   }
+
+  buyService(trans: any) {
+    console.log(trans);
+  }
+
+  sellService(trans: any) {
+    console.log(trans);
+  }
 }

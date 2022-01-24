@@ -34,6 +34,12 @@ export class CryptoCard {
 
   transactionAmount: number = 0;
 
+  transaction = {
+    amount: 0,
+    assetName: 'string',
+    userId: 0,
+  };
+
   // tradePriceService: TradePriceService;
 
   // ps: PricesService = new PricesService();
@@ -142,9 +148,19 @@ export class CryptoCard {
 
   buyCrypto() {
     console.log(`Buy ${this.transactionAmount} of  ${this.code} `);
+    this.transaction.assetName = this.code;
+    this.transaction.userId = JSON.parse(
+      JSON.parse(sessionStorage.getItem('1'))
+    ).id;
+    this.tradePriceService.buyService(this.transaction);
   }
 
   sellCrypto() {
     console.log(`Sell ${this.transactionAmount} of ${this.code}`);
+    this.transaction.assetName = this.code;
+    this.transaction.userId = JSON.parse(
+      JSON.parse(sessionStorage.getItem('1'))
+    ).id;
+    this.tradePriceService.sellService(this.transaction);
   }
 }

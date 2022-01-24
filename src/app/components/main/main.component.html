@@ -28,14 +28,14 @@
       <div id="spotPrice">{{ c.spotPrice }}</div>
 
       <div id="buySellPrice">
-        <input (click)="consolecode(c.code)" class="btn btn-primary btn-sm" value='Buy ${{ c.buyPrice ?? "NA" }}' >
-        <input (click)="consolecode(c.code)" class="btn btn-primary btn-sm" value='Sell ${{ c.sellPrice ?? "NA" }}'>
+        <input type="submit" (click)="consolecodebuy(c.code)" class="btn btn-primary btn-sm" value='Buy ${{ c.buyPrice ?? "NA" }}' >
+        <input type="submit" (click)="consolecodesell(c.code)" class="btn btn-primary btn-sm" value='Sell ${{ c.sellPrice ?? "NA" }}'>
       </div>
       <!--<div *ngIf="c.userId != 0" id="user">Balance</div>-->
       <form>
         <div class="form-group">
     <label for="Amount input">Amount</label>
-    <input type="number" class="form-control" id="inputamount" aria-describedby="amountHelp" placeholder="Enter amount">
+    <input [(ngModel)]="coinMap.BTC"  name="{{ c.code }}" type="number" class="form-control" id="inputamount" aria-describedby="amountHelp" placeholder="Enter amount">
     <small id="amountHelp" class="form-text text-muted">For Buy enter USD for sell coin amount</small>
   </div>
       </form>

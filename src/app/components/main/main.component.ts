@@ -1,3 +1,4 @@
+import { Wallet } from './../../models/user';
 import { PersistService } from './../../services/persist.service';
 import { TradePriceService } from './../../services/trade-price.service';
 import { CryptoCard } from './../../models/CryptoCard';
@@ -25,7 +26,15 @@ export class MainComponent implements OnInit {
   cryptos: CryptoCard[] = [];
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
+
+  public BTC = "BTC"
+  public amount: string;
+  //public wallet = new Wallet('','');
   // coins: string[] = ['BTC'];
+  //public something: any = {"BTC"}
+  coinAmount: Map<string, string> = new Map();
+
+  coinMap = {BTC: "", ETH: "", LTC: "", ADA: "", DOT:"", XLM: "", DOGE: "", USDT: ""}
 
   constructor(
     private cryptoCard: CryptoCard,
@@ -39,6 +48,7 @@ export class MainComponent implements OnInit {
     // this.cryptos.push(BTC);
     this.setCryptos();
     this.getId();
+    this.popmap();
   }
 
   setCryptos() {
@@ -65,7 +75,19 @@ export class MainComponent implements OnInit {
     console.log(temp)
   }
 
-  consolecode(code: string){
-    console.log(code);
+  consolecodebuy(code: string){
+    console.log("buy " + code);
+    console.log(this.amount);
+  }
+
+  consolecodesell(code: string){
+    console.log("sell " + code)
+    console.log(this.amount)
+  }
+
+  popmap(){
+    for (let i = 0; i < this.coins.length; i++){
+      this.coinAmount.set(this.coins[i], '')
+    }
   }
 }

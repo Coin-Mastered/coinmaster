@@ -58,6 +58,13 @@ export class MainComponent implements OnInit {
     this.setCryptos();
     this.getId();
     this.popmap();
+    console.log('refreshed');
+
+    this.inits();
+  }
+
+  inits() {
+    // setInterval(this.ngOnInit, 500);
   }
 
   setCryptos() {

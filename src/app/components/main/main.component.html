@@ -30,7 +30,7 @@
         <div id="buySellPrice">
           <input
             type="submit"
-            (click)="buy(c.code)"
+            (click)="c.buyCrypto()"
             class="btn btn-primary btn-sm"
             value="Buy ${{ c.buyPrice ?? 'NA' }}"
           />
@@ -46,7 +46,7 @@
           <div class="form-group">
             <label for="Amount input">Amount</label>
             <input
-              [(ngModel)]="obj.amount"
+              [(ngModel)]="c.transactionAmount"
               name="c.transactionAmount"
               type="number"
               class="form-control"
@@ -60,7 +60,6 @@
           </div>
         </form>
       </div>
-
     </div>
   </div>
   <p *ngIf="cryptos.length == 0">There is no data fetched.</p>

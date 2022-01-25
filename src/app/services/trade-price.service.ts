@@ -1,3 +1,4 @@
+import { awsUrl } from 'src/environments/environment';
 import { CryptoCard } from './../models/CryptoCard';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -251,9 +252,11 @@ export class TradePriceService {
 
   buyService(trans: any) {
     console.log(trans);
+    this.http.post<any>(`${awsUrl}buy`, trans);
   }
 
   sellService(trans: any) {
     console.log(trans);
+    this.http.post<any>(`${awsUrl}sell`, trans);
   }
 }

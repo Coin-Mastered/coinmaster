@@ -17,6 +17,6 @@
     Top 5 earners
   </div>
   <ul *ngFor="let e of entries" class="list-group list-group-flush">
-    <li class="list-group-item text-center">{{ e.user.username }}: ${{ e.value }}</li>
+    <li class="list-group-item text-center">{{ e.user.username }}: ${{ e.value.toFixed(2) }}</li>
   </ul>
 </div>

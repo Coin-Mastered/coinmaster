@@ -39,7 +39,7 @@
       />
       <div id="cryptoCode">{{ c.code }}</div>
     </div>
-    <div id="spotPrice">Amount: {{ c.balance }}</div>
+    <div id="spotPrice">Amount: {{ (+c.balance).toFixed(2) }}</div>
   </div>
 </div>
 <br />
@@ -47,7 +47,7 @@
 <br />
 <div class="card w-75">
   <div class="card-body">
-    <h5 class="card-title text-center">USD {{ coinAmount.get("USD") }}</h5>
+    <h5 class="card-title text-center">USD $ {{ (+coinAmount.get("USD")).toFixed(2) }}</h5>
     <!-- <p class="card-text text-center">$ {{ walletinfo.substring(271, 279) }}</p> -->
   </div>
 </div>

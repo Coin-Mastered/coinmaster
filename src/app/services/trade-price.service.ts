@@ -252,11 +252,22 @@ export class TradePriceService {
 
   buyService(trans: any) {
     console.log(trans);
-    this.http.post<any>(`${awsUrl}buy`, trans);
+    this.http
+      .post<any>(`${awsUrl}api/users/buy`, trans, {
+        observe: 'body',
+        responseType: 'json',
+      })
+      .subscribe(
+        (resp) => console.log(resp),
+        (e) => console.log(e)
+      );
   }
 
   sellService(trans: any) {
     console.log(trans);
-    this.http.post<any>(`${awsUrl}sell`, trans);
+    this.http.post<any>(`${awsUrl}api/users/sell`, trans).subscribe(
+      (resp) => console.log(resp),
+      (e) => console.log(e)
+    );
   }
 }

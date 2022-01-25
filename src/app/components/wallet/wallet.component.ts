@@ -43,6 +43,7 @@ export class WalletComponent implements OnInit {
 
   getwallet(){
     this.walletinfo = this.pers.get('1');
+    console.log(this.walletinfo)
     console.log("At walletinfo")
     return this.walletinfo;
   }

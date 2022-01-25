@@ -12,15 +12,11 @@
 <br/>
 <br/>
 
-<div class="card" style="width: 120rem;">
+<div class="card" style="width: 50%;">
   <div class="card-header text-center">
     Top 5 earners
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item text-center">1st Place</li>
-    <li class="list-group-item text-center">2nd Place</li>
-    <li class="list-group-item text-center">3rd Place</li>
-    <li class="list-group-item text-center">4th Place</li>
-    <li class="list-group-item text-center">5th Place</li>
+  <ul *ngFor="let e of entries" class="list-group list-group-flush">
+    <li class="list-group-item text-center">{{ e.user.username }}: ${{ e.value }}</li>
   </ul>
 </div>

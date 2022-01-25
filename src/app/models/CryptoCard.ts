@@ -148,6 +148,7 @@ export class CryptoCard {
 
   buyCrypto() {
     console.log(`Buy ${this.transactionAmount} of  ${this.code} `);
+    this.transaction.amount = this.transactionAmount;
     this.transaction.assetName = this.code;
     this.transaction.userId = JSON.parse(
       JSON.parse(sessionStorage.getItem('1'))
@@ -157,6 +158,7 @@ export class CryptoCard {
 
   sellCrypto() {
     console.log(`Sell ${this.transactionAmount} of ${this.code}`);
+    this.transaction.amount = this.transactionAmount;
     this.transaction.assetName = this.code;
     this.transaction.userId = JSON.parse(
       JSON.parse(sessionStorage.getItem('1'))

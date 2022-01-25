@@ -51,6 +51,7 @@ export class WalletComponent implements OnInit {
   getwallet() {
     console.log('get wallet start');
     this.walletinfo = this.pers.get('1');
+
     let temp = this.walletinfo
     console.log(this.walletinfo)
     if (typeof temp === 'string' || temp instanceof String){
@@ -75,6 +76,7 @@ export class WalletComponent implements OnInit {
 
       this.cryptos.push(card);
     });
+
 
     return this.walletinfo;
     } else {

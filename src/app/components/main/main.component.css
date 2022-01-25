@@ -67,10 +67,6 @@
 .row > div[class*="col-"] {
   display: flex;
 }
-*/ #cryptoCards {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 #cryptoCards > div {
   margin: 0 auto;
@@ -168,9 +164,8 @@ h2 {
   padding-right: 2px;
 }
 
-.btn{
+.btn {
   padding: 2px;
   border: 0;
   margin-right: 2%;
 }
-

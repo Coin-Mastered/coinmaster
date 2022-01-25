@@ -7,48 +7,69 @@
     <h1 class="mb-3">Available Coins</h1>
   </div>
 
-<br/>
+  <br />
 
-<div>
-  <div id="cryptoCards">
-    <div *ngFor="let c of cryptos" class="cryptoCard">
-      <div id="cardTitle">
-        <div id="cryptoName">{{ c.name }}</div>
+  <div>
+    <div id="cryptoCards">
+      <div *ngFor="let c of cryptos" class="cryptoCard">
+        <div id="cardTitle">
+          <div id="cryptoName">{{ c.name }}</div>
 
-        <img
-          src="assets/{{ c.code }}.png"
-          class="{{ c.name }}-logo"
-          alt="{{ c.name }}"
-          width="50"
-          height="40"
-        />
+          <img
+            src="assets/{{ c.code }}.png"
+            class="{{ c.name }}-logo"
+            alt="{{ c.name }}"
+            width="50"
+            height="40"
+          />
 
-        <div id="cryptoCode">{{ c.code }}</div>
+          <div id="cryptoCode">{{ c.code }}</div>
+        </div>
+        <div id="spotPrice">{{ c.spotPrice }}</div>
+
+        <div id="buySellPrice">
+          <input
+            type="submit"
+            (click)="c.buyCrypto()"
+            class="btn btn-primary btn-sm"
+            value="Buy ${{ c.buyPrice ?? 'NA' }}"
+          />
+          <input
+            type="submit"
+            (click)="c.sellCrypto()"
+            class="btn btn-primary btn-sm"
+            value="Sell ${{ c.sellPrice ?? 'NA' }}"
+          />
+        </div>
+        <!--<div *ngIf="c.userId != 0" id="user">Balance</div>-->
+        <form>
+          <div class="form-group">
+            <label for="Amount input">Amount</label>
+            <input
+              [(ngModel)]="c.transactionAmount"
+              name="c.transactionAmount"
+              type="number"
+              class="form-control"
+              id="inputamount"
+              aria-describedby="amountHelp"
+              placeholder="Enter amount"
+            />
+            <small id="amountHelp" class="form-text text-muted"
+              >For Buy enter USD for sell coin amount</small
+            >
+          </div>
+        </form>
       </div>
-      <div id="spotPrice">{{ c.spotPrice }}</div>
-
-      <div id="buySellPrice">
-        <input type="button" class="btn btn-primary btn-sm" value='Buy ${{ c.buyPrice ?? "NA" }}'>
-        <input type="button" class="btn btn-primary btn-sm" value='Sell ${{ c.sellPrice ?? "NA" }}'>
-      </div>
-      <!--<div *ngIf="c.userId != 0" id="user">Balance</div>-->
-      <form>
-        <div class="form-group">
-    <label for="Amount input">Amount</label>
-    <input type="number" class="form-control" id="inputamount" aria-describedby="amountHelp" placeholder="Enter amount">
-    <small id="amountHelp" class="form-text text-muted">For Buy enter USD for sell coin amount</small>
-  </div>
-      </form>
     </div>
   </div>
-</div>
-<app-leaderboard></app-leaderboard>
-<p *ngIf="cryptos.length == 0">There is no data fetched.</p>
-<!-- <div class="card" style="width: 120rem">
-  <div class="card-header text-center">Top 3 earners</div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item text-center">1st Place</li>
-    <li class="list-group-item text-center">2nd Place</li>
-    <li class="list-group-item text-center">3rd Place</li>
-  </ul>
-</div> -->
+
+  <p *ngIf="cryptos.length == 0">There is no data fetched.</p>
+  <div class="card" style="width: 120rem">
+    <div class="card-header text-center">Top 3 earners</div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-center">1st Place</li>
+      <li class="list-group-item text-center">2nd Place</li>
+      <li class="list-group-item text-center">3rd Place</li>
+    </ul>
+  </div>
+</header>

@@ -1,3 +1,4 @@
+import { Wallet } from 'src/app/models/user';
 import { PersistService } from './../../services/persist.service';
 import { TradePriceService } from './../../services/trade-price.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,6 +8,7 @@ import {
   HttpClient,
   HttpHeaders,
 } from '@angular/common/http';
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 // import { coinurl } from 'src/environments/environment';
 
 // const url = `${coinurl}`;
@@ -20,15 +22,19 @@ export class WalletComponent implements OnInit {
   cryptos: CryptoCard[] = [];
 
   coins: string[] = ['BTC', 'ETH', 'LTC', 'ADA', 'DOT', 'XLM', 'DOGE', 'USDT'];
+  coinAmount: Map<string, string> = new Map();
 
   // http: HttpClient;
 
   walletinfo;
 
-  constructor(private tradePriceService: TradePriceService, private pers: PersistService) {}
+  constructor(
+    private tradePriceService: TradePriceService,
+    private pers: PersistService
+  ) {}
 
   ngOnInit(): void {
-    this.setCryptos();
+    // this.setCryptos();
     //this.setSellPrices();
     this.getwallet();
   }
@@ -37,14 +43,67 @@ export class WalletComponent implements OnInit {
     this.coins.forEach((coin) => {
       let card: CryptoCard = new CryptoCard(this.tradePriceService);
       card.makeCryptoCard(coin);
+
       this.cryptos.push(card);
     });
   }
 
-  getwallet(){
+  getwallet() {
+    console.log('get wallet start');
     this.walletinfo = this.pers.get('1');
+
+    let temp = this.walletinfo
     console.log(this.walletinfo)
-    console.log("At walletinfo")
+    if (typeof temp === 'string' || temp instanceof String){
+      let fin = JSON.parse(this.walletinfo)
+      console.log("fin is a string")
+      console.log(fin)
+      let walletArr: Array<any> = fin.wallets;
+
+
+    for (let i = 0; i < walletArr.length; i++) {
+      let c = walletArr[i].assetName;
+      let a = walletArr[i].amount;
+      this.coinAmount.set(c, a);
+    }
+
+    console.log(this.coinAmount);
+
+    this.coins.forEach((coin) => {
+      let card: CryptoCard = new CryptoCard(this.tradePriceService);
+      card.makeCryptoCard(coin);
+      card.balance = this.coinAmount.get(coin);
+
+      this.cryptos.push(card);
+    });
+
+
     return this.walletinfo;
+    } else {
+      let fin = temp
+      console.log("fin isn't a string")
+      console.log(fin)
+    // console.log("hello " + this.walletinfo.substring(271, 279))
+    let walletArr: Array<any> = fin.wallets;
+
+
+    for (let i = 0; i < walletArr.length; i++) {
+      let c = walletArr[i].assetName;
+      let a = walletArr[i].amount;
+      this.coinAmount.set(c, a);
+    }
+
+    console.log(this.coinAmount);
+
+    this.coins.forEach((coin) => {
+      let card: CryptoCard = new CryptoCard(this.tradePriceService);
+      card.makeCryptoCard(coin);
+      card.balance = this.coinAmount.get(coin);
+
+      this.cryptos.push(card);
+    });
+
+    return this.walletinfo;
+  }
   }
 }

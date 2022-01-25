@@ -1,3 +1,4 @@
+import { PersistService } from './persist.service';
 import { awsUrl } from 'src/environments/environment';
 import { CryptoCard } from './../models/CryptoCard';
 import { HttpClient } from '@angular/common/http';
@@ -6,6 +7,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { FileWatcherEventKind, ListFormat } from 'typescript';
 import { BuySell } from '../models/buysell';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +26,7 @@ export class TradePriceService {
     USDT: '',
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private per: PersistService, private Router: Router) {}
 
   // tradePrice() {
   //   let amount: string;
@@ -258,7 +260,7 @@ export class TradePriceService {
         responseType: 'json',
       })
       .subscribe(
-        (resp) => console.log(resp),
+        (resp) => {console.log(resp), this.per.set('1', JSON.stringify(resp)), this.Router.navigate(['/wallet']) },
         (e) => console.log(e)
       );
   }
@@ -266,7 +268,7 @@ export class TradePriceService {
   sellService(trans: any) {
     console.log(trans);
     this.http.post<any>(`${awsUrl}api/users/sell`, trans).subscribe(
-      (resp) => console.log(resp),
+      (resp) => {console.log(resp), this.per.set('1', JSON.stringify(resp)), this.Router.navigate(['/wallet']) },
       (e) => console.log(e)
     );
   }

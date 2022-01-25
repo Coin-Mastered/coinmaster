@@ -23,7 +23,7 @@
 FROM nginx:latest
 
 # Copy the build output to replace the default nginx contents.
-COPY /usr/src/app/dist/front-end /usr/share/nginx/html
+COPY /usr/src/app/dist/frontend /usr/share/nginx/html
 
 
 # Expose port 80

@@ -9,7 +9,7 @@ import { FileWatcherEventKind, ListFormat } from 'typescript';
 import { BuySell } from '../models/buysell';
 import { Router } from '@angular/router';
 
-let awsUrl = 'http://localhost:5000/';
+const awsUrl = 'http://ec2-52-90-7-20.compute-1.amazonaws.com:5000/';
 
 @Injectable({
   providedIn: 'root',

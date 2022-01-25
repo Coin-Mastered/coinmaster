@@ -8,7 +8,7 @@ import {
 import { catchError, Observable, throwError } from 'rxjs';
 // import { awsUrl } from 'src/environments/environment';
 
-let awsUrl = 'http://localhost:5000/';
+const awsUrl = 'http://ec2-52-90-7-20.compute-1.amazonaws.com:5000/';
 
 //Need to make a url
 const url = `${awsUrl}api/users`;

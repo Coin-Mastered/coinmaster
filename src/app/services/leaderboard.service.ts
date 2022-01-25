@@ -8,7 +8,7 @@ import {
 import { LeaderboardEntry } from '../models/LeaderboardEntry';
 import { catchError, throwError, Observable } from 'rxjs';
 
-let awsUrl = 'http://localhost:5000/';
+const awsUrl = 'http://ec2-52-90-7-20.compute-1.amazonaws.com:5000/';
 const url = `${awsUrl}api/users/leaderboard`;
 
 @Injectable({
